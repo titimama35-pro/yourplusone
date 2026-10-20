@@ -1,0 +1,966 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Your +1 in France</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<meta name="description" content="French admin, handled in English. A French-speaking student calls the institution for you and follows your case until it is solved.">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Source+Serif+4:opsz,wght@8..60,600;8..60,700&family=Work+Sans:wght@400;500;600&display=swap">
+<style>
+/* Layout: a service website in the team's bordeaux and cream charter. Sticky header, wide sections, two-column work areas that stack on phones. */
+:root{
+  --paper:#FAF6EF; --paper-2:#F3ECE2; --card:#FFFFFF; --ink:#2B2326; --muted:#6B5A5F; --line:#E4D3CD;
+  --wine:#5C2438; --wine-dark:#45192A; --wine-soft:#F0E3DE; --rose:#E9A3B5;
+  --ok:#3F6B55; --ok-soft:#E7F0EA; --warn:#6A5410; --warn-soft:#FFF6E2; --warn-line:#EBD8A6;
+  --display:'Source Serif 4',Georgia,'Times New Roman',serif;
+  --body:'Work Sans',-apple-system,'Segoe UI',Roboto,sans-serif;
+  color-scheme:light;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--body);font-size:15px;line-height:1.5;overflow-x:hidden}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:60;background:var(--paper)}
+button,input,textarea,select{font:inherit;color:inherit}
+button{cursor:pointer;border:0;background:none;padding:0}
+a{color:var(--wine)}
+:focus-visible{outline:3px solid var(--rose);outline-offset:2px}
+img{max-width:100%;display:block}
+.wrap{max-width:1160px;margin:0 auto;padding-left:max(20px,env(safe-area-inset-left,0px));padding-right:max(20px,env(safe-area-inset-right,0px))}
+h1,h2,h3{font-family:var(--display);font-weight:700;letter-spacing:-.015em;margin:0;text-wrap:balance}
+h1{font-size:clamp(36px,5.2vw,58px);line-height:1.04}
+h2{font-size:clamp(30px,3.9vw,46px);line-height:1.06}
+h3{font-size:19px;line-height:1.25}
+p{margin:0}
+.lead{font-size:16.5px;color:var(--muted);max-width:60ch}
+.eyebrow{display:inline-block;align-self:flex-start;font-size:12px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--wine);background:var(--wine-soft);padding:5px 12px;border-radius:20px}
+.muted{color:var(--muted)}
+
+/* Header */
+header{position:sticky;top:env(safe-area-inset-top,0px);z-index:50;background:#faf6efee;backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
+.hdr{display:flex;align-items:center;gap:20px;min-height:68px}
+.brand{display:flex;align-items:center;gap:10px;font-family:var(--display);font-weight:700;font-size:19px;color:var(--wine);text-decoration:none;white-space:nowrap}
+.mark{width:36px;height:36px;border-radius:50%;background:var(--wine);color:#fff;display:grid;place-items:center;font-family:var(--body);font-weight:600;font-size:14px;flex:none}
+nav{display:flex;gap:4px;margin-left:auto;align-items:center}
+nav a{padding:10px 12px;border-radius:10px;text-decoration:none;color:var(--ink);font-size:14.5px;font-weight:500}
+nav a:hover{background:var(--wine-soft)}
+nav a[aria-current=page]{color:var(--wine);background:var(--wine-soft)}
+.menu-btn{display:none;min-height:44px;padding:0 14px;border:1.5px solid var(--line);border-radius:10px;font-size:14px;font-weight:600}
+.demo-band{background:var(--wine);color:#f6e7eb;font-size:12.5px;text-align:center;padding:6px 16px}
+
+/* Buttons */
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;min-height:50px;padding:0 22px;border-radius:12px;background:var(--wine);color:#fff;font-weight:600;font-size:15px;text-decoration:none;transition:background .15s,transform .15s}
+.btn:hover{background:var(--wine-dark)}.btn:active{transform:translateY(1px)}
+.btn:disabled{opacity:.45;cursor:not-allowed}
+.btn.alt{background:var(--card);color:var(--wine);border:1.5px solid var(--wine)}
+.btn.alt:hover{background:var(--wine-soft)}
+.btn.ghost{background:transparent;color:var(--ink);border:1.5px solid var(--line)}
+.btn.sm{min-height:40px;padding:0 14px;font-size:13.5px;border-radius:10px}
+.btn.block{width:100%;justify-content:space-between}
+.demo{width:100%;min-height:48px;border:1.5px dashed #b48593;border-radius:12px;background:var(--card);color:var(--wine);font-size:14px;font-weight:600}
+.lnk{font-size:13.5px;color:var(--muted);text-decoration:underline;min-height:36px}
+.row-btns{display:flex;gap:10px;flex-wrap:wrap;align-items:center}
+
+/* Generic blocks */
+section{padding-block:64px}
+section[id]{scroll-margin-top:84px}
+.sec-head{display:flex;flex-direction:column;gap:14px;margin-bottom:36px;max-width:720px}
+.sec-head .lead{font-size:18px}
+.alt-bg{background:var(--paper-2)}
+.dark-bg{background:var(--ink);color:#fff}.dark-bg .lead{color:#e4d3cd}.dark-bg .eyebrow{background:#ffffff1f;color:var(--rose)}
+.timeline{display:grid;grid-template-columns:repeat(4,1fr);gap:24px;position:relative}
+.timeline::before{content:"";position:absolute;top:22px;left:22px;right:22px;height:2px;background:var(--wine);opacity:.25}
+.tstep{position:relative;display:flex;flex-direction:column;gap:10px}
+.tstep .n{width:46px;height:46px;border-radius:50%;background:var(--wine);color:#fff;display:grid;place-items:center;font-family:var(--display);font-size:20px;font-weight:700;box-shadow:0 0 0 6px var(--paper-2)}
+.tstep h3{font-size:21px}.tstep p{font-size:15px;color:var(--muted)}
+.hero-ctas{display:flex;gap:12px;flex-wrap:wrap;align-items:center}
+.btn.lg{min-height:58px;padding:0 28px;font-size:16.5px;border-radius:14px}
+.tour{position:fixed;inset:0;z-index:85;background:#14090dcc;display:flex;align-items:center;justify-content:center;padding:20px}
+.tour>div{width:100%;max-width:520px;background:var(--paper);border-radius:24px;overflow:hidden;display:flex;flex-direction:column;animation:up .25s ease}
+.tour .vis{height:190px;background:var(--wine);color:#fff;display:flex;align-items:center;justify-content:center;position:relative;overflow:hidden}
+.tour .vis img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:.55}
+.tour .big{position:relative;font-family:var(--display);font-size:64px;font-weight:700;line-height:1}
+.tour .body{padding:24px 26px 26px;display:flex;flex-direction:column;gap:12px}
+.tour .body h2{font-size:28px}
+.tour .nav{display:flex;align-items:center;justify-content:space-between;gap:10px;margin-top:6px}
+.tdots{display:flex;gap:6px}.tdots i{width:22px;height:4px;border-radius:4px;background:var(--line)}.tdots i.on{background:var(--wine)}
+.card{background:var(--card);border:1px solid var(--line);border-radius:18px;padding:20px;display:flex;flex-direction:column;gap:10px;min-width:0}
+.card p{font-size:14px;color:var(--muted)}
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:20px}
+.grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.grid4{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
+.work{display:grid;grid-template-columns:minmax(0,1.5fr) minmax(0,1fr);gap:28px;align-items:start;padding-block:36px 64px}
+.stack{display:flex;flex-direction:column;gap:16px;min-width:0}
+.photo{position:relative;border-radius:22px;overflow:hidden;background:linear-gradient(135deg,var(--wine-soft),var(--paper-2))}
+.photo img{width:100%;height:100%;object-fit:cover}
+.credit{font-size:11px;color:var(--muted)}
+.pill{display:inline-block;font-size:11.5px;font-weight:600;padding:4px 10px;border-radius:20px;background:var(--wine-soft);color:var(--wine);white-space:nowrap}
+.pill.ok{background:var(--ok-soft);color:var(--ok)}
+.pill.warn{background:var(--warn-soft);color:var(--warn)}
+.pill.grey{background:#eee8e6;color:var(--muted)}
+.notice{display:flex;flex-direction:column;gap:4px;background:var(--warn-soft);border:1px solid var(--warn-line);border-radius:14px;padding:12px 14px;font-size:13.5px;color:var(--warn)}
+.good{display:flex;flex-direction:column;gap:4px;background:var(--ok-soft);border:1px solid #c9ddd0;border-radius:14px;padding:12px 14px;font-size:13.5px;color:var(--ok)}
+.tiny{font-size:12px;color:var(--muted)}
+.sec-label{font-size:12px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;color:var(--muted)}
+
+/* Home hero */
+.hero{display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,1fr);gap:48px;align-items:center;padding-block:56px 40px}
+.hero h1 span{color:var(--wine)}
+.search{background:var(--card);border:1px solid var(--line);border-radius:20px;padding:18px;box-shadow:0 18px 40px #5c24381a;display:flex;flex-direction:column;gap:12px;margin-top:8px}
+.search b{font-size:14px}
+.hero-photo{aspect-ratio:1/1;max-height:560px}
+.float{position:absolute;left:18px;right:18px;bottom:18px;background:#fffffff2;border-radius:16px;padding:14px 16px;display:flex;flex-direction:column;gap:6px;box-shadow:0 12px 30px #2b232633}
+.float .meta{display:flex;gap:10px;flex-wrap:wrap;font-size:12px;color:var(--muted);font-variant-numeric:tabular-nums}
+.fr{font-family:var(--display);font-style:italic;color:var(--wine)}
+.trust{display:flex;gap:28px;flex-wrap:wrap;padding-block:18px;border-block:1px solid var(--line);font-size:14px}
+.trust div{display:flex;gap:10px;align-items:center}
+.trust i{width:8px;height:8px;border-radius:50%;background:var(--wine);flex:none}
+.catcard{display:flex;flex-direction:column;gap:4px;text-align:left;background:var(--card);border:1px solid var(--line);border-radius:16px;padding:18px;min-height:110px;transition:border-color .15s,transform .15s}
+.catcard:hover{border-color:var(--wine);transform:translateY(-2px)}
+.catcard b{font-size:17px}
+.catcard{gap:6px;padding:20px}
+.cico{width:54px;height:54px;border-radius:16px;display:grid;place-items:center;margin-bottom:8px;transition:transform .2s}
+.cico svg{width:28px;height:28px;fill:none;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+.catcard:hover .cico{transform:scale(1.08) rotate(-4deg)}
+.chipi{display:inline-flex;align-items:center;gap:10px}.chipi small{white-space:nowrap}
+.chip .cmini{display:grid;place-items:center;width:30px;height:30px;border-radius:9px;flex:none}
+.chip .cmini svg{width:16px;height:16px;fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+.catcard small{font-size:13px;color:var(--muted)}
+.catcard span{margin-top:auto;font-size:13px;font-weight:600;color:var(--wine)}
+.band{background:var(--ink);color:#fff;border-radius:24px;overflow:hidden;display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr)}
+.band .txt{padding:40px;display:flex;flex-direction:column;gap:14px;justify-content:center}
+.band p{color:#e4d3cd}
+.band .photo{border-radius:0;min-height:300px}
+.steps4{counter-reset:s}
+.step{display:flex;flex-direction:column;gap:8px}
+.step .n{width:36px;height:36px;border-radius:50%;border:1.5px solid var(--wine);color:var(--wine);display:grid;place-items:center;font-weight:600}
+.soonrow{display:flex;align-items:center;gap:12px;width:100%;text-align:left;min-height:64px;background:var(--card);border:1.5px dashed #cdb9bf;border-radius:16px;padding:14px 16px;font-size:14.5px;font-weight:500}
+.soonrow .t{flex:1}.soonrow small{display:block;font-weight:400;color:var(--muted);font-size:13px}
+.soon{font-size:11px;font-weight:600;background:#eee8e6;color:var(--muted);border-radius:20px;padding:3px 9px;flex:none}
+.duo{display:grid;grid-template-columns:1fr 1fr;gap:20px}
+.duo .card{padding:0;overflow:hidden}
+.duo .photo{border-radius:0;aspect-ratio:16/9}
+.duo .in{padding:22px;display:flex;flex-direction:column;gap:10px;align-items:flex-start}
+footer{border-top:1px solid var(--line);padding-block:32px;font-size:13px;color:var(--muted)}
+footer .wrap{display:flex;flex-direction:column;gap:8px}
+
+/* Forms & flow */
+.stepper{display:flex;gap:6px;flex-wrap:wrap}
+.stepper span{display:flex;align-items:center;gap:6px;font-size:12.5px;color:var(--muted);padding:6px 10px;border-radius:20px;background:#eee8e6}
+.stepper span.on{background:var(--wine);color:#fff}
+.stepper span.done{background:var(--wine-soft);color:var(--wine)}
+.field{display:flex;flex-direction:column;gap:6px}
+.lbl{font-size:13.5px;font-weight:600}
+textarea,input[type=text],select{width:100%;border:1.5px solid var(--line);border-radius:12px;background:var(--card);padding:12px 14px;font-size:15px;color:var(--ink);resize:vertical}
+select{min-height:48px}
+textarea:focus,input[type=text]:focus,select:focus{border-color:var(--wine);outline:0}
+.chips{display:flex;flex-wrap:wrap;gap:8px}
+.chip{min-height:44px;padding:8px 14px;border-radius:12px;border:1.5px solid var(--line);background:var(--card);font-size:14px;text-align:left;line-height:1.25}
+.chip small{display:block;font-size:11.5px;color:var(--muted)}
+.chip[aria-pressed=true]{border-color:var(--wine);background:var(--wine-soft);color:var(--wine);font-weight:600}
+.consent{display:flex;gap:10px;align-items:flex-start;font-size:13px;color:var(--muted)}
+.consent input{margin:3px 0 0;width:18px;height:18px;accent-color:var(--wine);flex:none}
+.err{color:var(--wine);font-size:13px;min-height:18px}
+.opt{display:flex;gap:12px;align-items:center;width:100%;min-height:62px;padding:12px 16px;border:1.5px solid var(--line);border-radius:14px;background:var(--card);text-align:left;font-size:15px}
+.opt small{display:block;font-size:12.5px;color:var(--muted)}
+.opt[aria-checked=true],.opt[aria-pressed=true]{border-color:var(--wine);background:var(--wine-soft)}
+.radio{margin-left:auto;width:18px;height:18px;border-radius:50%;border:1.5px solid #cdb9bf;flex:none}
+.opt[aria-checked=true] .radio,.opt[aria-pressed=true] .radio{border-color:var(--wine);background:radial-gradient(var(--wine) 45%,transparent 50%)}
+.pulse{display:grid;place-items:center;height:180px}
+.pulse div{width:84px;height:84px;border-radius:50%;background:var(--wine);color:#fff;display:grid;place-items:center;font-family:var(--display);font-size:30px;font-weight:700;animation:pulse 1.4s ease-out infinite}
+@keyframes pulse{0%{box-shadow:0 0 0 0 #5c243866}100%{box-shadow:0 0 0 34px #5c243800}}
+.profile{display:flex;gap:14px;align-items:center}
+.avatar{width:56px;height:56px;border-radius:50%;background:var(--wine-soft);color:var(--wine);display:grid;place-items:center;font-family:var(--display);font-weight:700;font-size:22px;flex:none}
+.facts{display:flex;gap:8px;flex-wrap:wrap}
+.tl{display:flex;flex-direction:column}
+.tl .row{display:grid;grid-template-columns:22px 1fr;gap:12px;padding:8px 0;position:relative}
+.tl .dot{width:22px;height:22px;border-radius:50%;border:2px solid var(--wine);background:var(--card);z-index:1}
+.tl .row.on .dot{background:var(--wine)}
+.tl .row:not(:last-child)::after{content:"";position:absolute;left:10px;top:30px;bottom:-6px;width:2px;background:var(--line)}
+.tl .row.on:not(:last-child)::after{background:var(--wine)}
+.tl b{display:block;font-size:14.5px}
+.tl .row:not(.on) b{color:#a8979c}
+.tl span{font-size:12.5px;color:var(--muted)}
+.msg{background:var(--card);border:1px solid var(--line);border-radius:4px 16px 16px 16px;padding:12px 14px;font-size:14px}
+.msg small{display:block;font-size:12px;color:var(--muted);margin-bottom:4px}
+.log{background:var(--wine-soft);border-radius:16px;padding:16px;display:flex;flex-direction:column;gap:8px;font-size:14px}
+.log .meta{display:flex;flex-wrap:wrap;gap:6px 14px;font-size:12.5px;color:var(--muted);font-variant-numeric:tabular-nums}
+.log blockquote{margin:0;padding-left:12px;border-left:2px solid var(--wine)}
+.check{display:flex;gap:10px;align-items:flex-start;width:100%;text-align:left;min-height:44px;padding:10px 12px;border:1px solid var(--line);border-radius:12px;background:var(--card);font-size:13.5px}
+.check .bx{width:20px;height:20px;border-radius:6px;border:2px solid var(--wine);flex:none;display:grid;place-items:center;color:#fff;font-size:12px}
+.check[aria-pressed=true] .bx{background:var(--wine)}
+.check[aria-pressed=true] .txt{color:var(--muted);text-decoration:line-through}
+.stars{display:flex;gap:8px;flex-wrap:wrap}
+.star{width:54px;height:54px;border-radius:14px;border:1.5px solid var(--line);background:var(--card);font-size:22px;color:#cdb9bf}
+.star.on{color:var(--wine);border-color:var(--wine);background:var(--wine-soft)}
+.partner{background:var(--warn-soft);border:1.5px solid var(--warn-line);border-radius:16px;padding:16px;display:flex;flex-direction:column;gap:6px}
+.partner p{font-size:13.5px;color:#5c4a12}
+.kv{display:flex;flex-direction:column}
+.kv div{display:flex;justify-content:space-between;gap:10px;font-size:14px;padding:10px 0;border-top:1px solid var(--line)}
+.kv div:first-child{border-top:0}
+.kv strong{color:var(--wine);font-variant-numeric:tabular-nums;text-align:right}
+
+/* Letter */
+.lt{display:flex;gap:12px;align-items:center;width:100%;min-height:62px;padding:12px 14px;border:1.5px solid var(--line);border-radius:14px;background:var(--card);text-align:left;font-size:14.5px}
+.lt small{display:block;font-size:12.5px;color:var(--muted)}
+.lt[aria-pressed=true]{border-color:var(--wine);background:var(--wine-soft)}
+.lt[aria-pressed=true] .radio{border-color:var(--wine);background:radial-gradient(var(--wine) 45%,transparent 50%)}
+.upload{position:relative;display:flex;gap:12px;align-items:center;min-height:56px;padding:12px 14px;border:1.5px dashed #cdb9bf;border-radius:14px;background:var(--card);font-size:14px;cursor:pointer}
+.upload input{position:absolute;opacity:0;width:1px;height:1px}
+.paper{background:#fffdf8;border:1px solid var(--line);border-radius:6px;padding:22px 20px;box-shadow:0 12px 28px #2b232614;font-family:var(--display);font-size:14.5px;line-height:1.65;color:#3a3134;display:flex;flex-direction:column;gap:10px}
+.paper .hd{display:flex;justify-content:space-between;gap:8px;font-family:var(--body);font-size:11px;color:var(--muted);text-transform:uppercase;letter-spacing:.05em}
+.paper .obj{font-weight:700}
+.deadline{display:flex;justify-content:space-between;align-items:center;gap:10px;background:var(--wine);color:#fff;border-radius:16px;padding:16px 18px}
+.deadline span{font-size:12px;color:#f0d5dc;display:block}
+.deadline strong{font-family:var(--display);font-size:24px}
+.deadline .left{font-family:var(--display);font-size:34px;font-weight:700;text-align:right;line-height:1}
+.deadline .left small{display:block;font-family:var(--body);font-size:11px;font-weight:400;color:#f0d5dc}
+.todo{margin:0;padding-left:20px;display:flex;flex-direction:column;gap:6px;font-size:14px}
+
+/* Schools */
+.stats{display:grid;grid-template-columns:repeat(4,1fr);gap:12px}
+.stat{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:14px 16px;display:flex;flex-direction:column;gap:2px}
+.stat span{font-size:12.5px;color:var(--muted)}
+.stat strong{font-family:var(--display);font-size:28px;color:var(--wine);font-variant-numeric:tabular-nums;line-height:1.15}
+.stat small{font-size:12px;color:var(--muted)}
+.stat.hl{background:var(--wine);border-color:var(--wine)}
+.stat.hl span,.stat.hl small{color:#f0d5dc}.stat.hl strong{color:#fff}
+.meter{height:8px;border-radius:4px;background:#ffffff40;margin-top:6px}
+.meter i{display:block;height:8px;border-radius:4px;background:#fff}
+.bars{display:flex;flex-direction:column;gap:10px}
+.bars div{display:flex;flex-direction:column;gap:4px;font-size:13.5px}
+.bars .lab{display:flex;justify-content:space-between;font-variant-numeric:tabular-nums}
+.bars .track{height:8px;border-radius:4px;background:var(--wine-soft)}
+.bars .track i{display:block;height:8px;border-radius:4px;background:var(--wine)}
+.dash{background:var(--paper-2);border:1px solid var(--line);border-radius:24px;padding:24px;display:flex;flex-direction:column;gap:16px}
+.cases{width:100%;border-collapse:collapse;font-size:14px}
+.cases th,.cases td{text-align:left;padding:10px 12px;border-bottom:1px solid var(--line);white-space:nowrap}
+.cases th{font-size:12px;color:var(--muted);font-weight:600}
+.scroll{overflow-x:auto}
+.plans{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;align-items:stretch}
+.plan{background:var(--card);border:1px solid var(--line);border-radius:20px;padding:22px;display:flex;flex-direction:column;gap:10px}
+.plan.feat{border:2px solid var(--wine);box-shadow:0 18px 40px #5c24381f}
+.plan .price{font-family:var(--display);font-size:34px;font-weight:700;color:var(--wine);line-height:1;font-variant-numeric:tabular-nums}
+.plan .per{font-size:13px;color:var(--muted)}
+.plan ul{margin:0;padding-left:18px;display:flex;flex-direction:column;gap:6px;font-size:14px;flex:1}
+.alert{display:flex;flex-direction:column;gap:6px;border:1.5px solid var(--wine);border-radius:16px;padding:16px;background:var(--card);font-size:14px}
+
+/* Helper */
+.mission{display:flex;flex-direction:column;gap:6px;width:100%;text-align:left;background:var(--card);border:1.5px solid var(--line);border-radius:16px;padding:16px}
+.mission:hover,.mission[aria-current=true]{border-color:var(--wine)}
+.mission .top{display:flex;justify-content:space-between;align-items:center;gap:8px;font-size:12.5px;color:var(--muted)}
+.mission b{font-size:15.5px}
+.mission p{font-size:13.5px;color:var(--muted)}
+.mission .pay{font-size:12.5px;font-weight:600;color:var(--wine)}
+
+/* Search, language, WhatsApp */
+.searchbar{display:flex;gap:8px;background:var(--card);border:1.5px solid var(--line);border-radius:16px;padding:8px;box-shadow:0 18px 40px #5c24381a}
+.searchbar:focus-within{border-color:var(--wine)}
+.searchbar input{flex:1;min-width:0;border:0;background:transparent;padding:10px 10px;font-size:16px;color:var(--ink)}
+.searchbar input:focus{outline:0}
+.sugg{display:flex;flex-direction:column;gap:6px}
+.sugg button{display:flex;justify-content:space-between;align-items:center;gap:10px;width:100%;min-height:48px;padding:10px 14px;border:1px solid var(--line);border-radius:12px;background:var(--card);text-align:left;font-size:14.5px}
+.sugg button:hover,.sugg button:focus-visible{border-color:var(--wine);background:var(--wine-soft)}
+.sugg b{color:var(--wine);font-size:13px;white-space:nowrap}
+.or{display:flex;align-items:center;gap:12px;font-size:13px;color:var(--muted)}
+.lang{min-height:40px;width:auto;padding:0 30px 0 10px;border-radius:10px;font-size:13.5px;font-weight:600;border:1.5px solid var(--line);background:var(--card)}
+.wa{position:fixed;right:max(18px,env(safe-area-inset-right,0px));bottom:calc(18px + env(safe-area-inset-bottom,0px));z-index:70;display:flex;align-items:center;gap:8px;min-height:52px;padding:0 18px 0 14px;border-radius:30px;background:#1f7a4d;color:#fff;font-weight:600;font-size:14px;box-shadow:0 12px 28px #0003}
+.wa:hover{background:#196640}
+.wa svg{width:22px;height:22px;fill:none;stroke:#fff;stroke-width:1.8;stroke-linejoin:round}
+/* Spotlight tour */
+.sp{position:fixed;inset:0;z-index:95}
+.sp-hole{position:fixed;border-radius:16px;box-shadow:0 0 0 9999px #14090dd0;transition:all .3s ease;pointer-events:none}
+.sp-hole.ring{outline:3px solid var(--rose);outline-offset:3px}
+.sp-tip{position:fixed;width:min(340px,calc(100vw - 32px));background:var(--paper);border-radius:18px;padding:20px;display:flex;flex-direction:column;gap:10px;box-shadow:0 20px 50px #0006;transition:top .3s ease,left .3s ease}
+.sp-tip h3{font-size:21px}
+.sp-tip p{font-size:14.5px;color:var(--muted)}
+.sp-arrow{position:absolute;width:18px;height:18px;background:var(--paper);transform:rotate(45deg)}
+.sp-nav{display:flex;align-items:center;justify-content:space-between;gap:8px;margin-top:4px}
+.sp-count{font-size:12px;color:var(--muted);font-variant-numeric:tabular-nums}
+/* Real pilot band */
+.pilot{background:var(--ink);color:#f6eef0}
+.pilot .lead{color:#d9c7cc}
+.pilot .eyebrow{background:#3F6B5555;color:#a9dcbf}
+.pstats{display:grid;grid-template-columns:repeat(5,1fr);border-block:1px solid #ffffff26;margin-bottom:32px}
+.pstats div{padding:20px 18px;display:flex;flex-direction:column;gap:2px;border-left:1px solid #ffffff1a}
+.pstats div:first-child{border-left:0;padding-left:0}
+.pstats strong{font-family:var(--display);font-size:40px;line-height:1;color:var(--rose);font-variant-numeric:tabular-nums}
+.pstats span{font-weight:600;font-size:14.5px}
+.pstats small{font-size:12.5px;color:#bba7ad}
+.cases-real{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+.casefile{background:#fffdf8;color:var(--ink);border-radius:6px;padding:18px 18px 20px;display:flex;flex-direction:column;gap:10px;box-shadow:0 14px 30px #0000004d;transform:rotate(-.4deg)}
+.casefile:nth-child(even){transform:rotate(.5deg)}
+.cf-top{display:flex;justify-content:space-between;gap:8px;font-size:11px;letter-spacing:.06em;text-transform:uppercase;color:var(--muted);border-bottom:1px dashed var(--line);padding-bottom:8px}
+.casefile h3{font-size:18px}
+.cf-quote{font-family:var(--display);font-style:italic;font-size:15px;line-height:1.55;color:#3a3134}
+.cf-out{align-self:flex-start;font-size:12.5px;font-weight:600;padding:5px 10px;border-radius:8px}
+.cf-out.ok{background:var(--ok-soft);color:var(--ok)}.cf-out.no{background:var(--warn-soft);color:var(--warn)}.cf-out.wait{background:#eee8e6;color:var(--muted)}
+.casefile.cta{background:var(--wine);color:#fff;transform:none;justify-content:center}
+.casefile.cta p{color:#f0d5dc}
+.casefile.cta .btn{background:#fff;color:var(--wine);align-self:flex-start}
+@media (max-width:860px){.pstats{grid-template-columns:1fr 1fr}.pstats div:nth-child(odd){border-left:0;padding-left:0}.cases-real{grid-template-columns:1fr}.casefile{transform:none!important}}
+/* Messages */
+.thread{background:var(--card);border:1px solid var(--line);border-radius:18px;padding:16px;display:flex;flex-direction:column;gap:10px}
+.thread-head{display:flex;justify-content:space-between;align-items:center;gap:8px;flex-wrap:wrap}
+.bubbles{display:flex;flex-direction:column;gap:8px;max-height:340px;overflow-y:auto;padding:4px 2px}
+.bubble{max-width:85%;padding:10px 14px;border-radius:16px;font-size:14px;line-height:1.45;overflow-wrap:anywhere}
+.bubble small{display:block;font-size:11px;opacity:.75;margin-bottom:2px}
+.bubble.me{align-self:flex-end;background:var(--wine);color:#fff;border-bottom-right-radius:4px}
+.bubble.them{align-self:flex-start;background:var(--paper-2);border-bottom-left-radius:4px}
+.composer{display:flex;gap:8px;align-items:flex-end}
+.composer textarea{min-height:46px;padding:10px 12px;font-size:14.5px}
+.quick{display:flex;gap:6px;flex-wrap:wrap}
+.quick button{font-size:12.5px;padding:7px 11px;border-radius:20px;border:1px solid var(--line);background:var(--paper);min-height:34px}
+.quick button:hover{border-color:var(--wine);color:var(--wine)}
+/* Modal + toast */
+.modal{position:fixed;inset:0;z-index:80;background:#14090d80;display:flex;align-items:center;justify-content:center;padding:20px}
+.modal>div{width:100%;max-width:480px;max-height:90vh;overflow-y:auto;background:var(--paper);border-radius:22px;padding:26px;display:flex;flex-direction:column;gap:14px;animation:up .2s ease}
+@keyframes up{from{transform:translateY(20px);opacity:0}}
+.toast{position:fixed;left:50%;bottom:calc(84px + env(safe-area-inset-bottom,0px));transform:translate(-50%,16px);background:var(--ink);color:#fff;font-size:13.5px;padding:11px 18px;border-radius:30px;opacity:0;transition:.25s;z-index:90;pointer-events:none;max-width:calc(100% - 32px);text-align:center}
+.toast.show{opacity:1;transform:translate(-50%,0)}
+
+@media (min-width:861px){nav a[data-i18n="nav0"]{display:none}}
+@media (max-width:980px){
+  .grid4,.plans,.stats{grid-template-columns:repeat(2,1fr)}
+  .grid3{grid-template-columns:1fr 1fr}
+}
+@media (max-width:860px){
+  nav{display:none;position:absolute;top:100%;left:0;right:0;flex-direction:column;align-items:stretch;background:var(--paper);border-bottom:1px solid var(--line);padding:8px max(20px,env(safe-area-inset-left,0px)) 14px}
+  nav.open{display:flex}
+  nav a{padding:14px 12px}
+  .menu-btn{display:block}
+  .lang{margin-left:auto;order:2}.menu-btn{order:3}.hdr{gap:10px}
+  .hero,.work,.grid2,.duo,.band{grid-template-columns:1fr}
+  .timeline{grid-template-columns:1fr;gap:18px}
+  .timeline::before{top:22px;bottom:22px;left:22px;right:auto;width:2px;height:auto}
+  .tstep{display:grid;grid-template-columns:46px 1fr;column-gap:16px;row-gap:4px}
+  .tstep .n{grid-row:span 2}
+  .hero{gap:28px;padding-block:32px}
+  .hero-photo{aspect-ratio:4/3}
+  .band .txt{padding:28px}
+  section{padding-block:44px}
+}
+@media (max-width:520px){
+  .brand{font-size:16px;gap:8px}.brand .mark{width:32px;height:32px}
+  .wa span{display:none}.wa{padding:0 14px}
+  .searchbar{flex-direction:column}.searchbar .btn{width:100%}
+  .grid4,.grid3,.plans{grid-template-columns:1fr}
+  .stats{grid-template-columns:1fr 1fr}
+  .stat strong{font-size:23px}
+  .hdr .btn{display:none}
+}
+@media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important;scroll-behavior:auto!important}}
+</style>
+
+</head><body>
+<div class="demo-band">Demo website for an HEC student project, not a company. You can still send a real request: our student team will try to help, for free and with no guarantee. Léa, prices and dashboard figures are examples unless marked “real”.</div>
+<header>
+  <div class="wrap hdr">
+    <a class="brand" href="#home" data-nav="home"><span class="mark">+1</span>Your +1 in France</a>
+    <button class="menu-btn" id="menuBtn" aria-expanded="false" aria-controls="nav">Menu</button>
+    <nav id="nav" aria-label="Main">
+      <a href="#help" data-nav="help" data-i18n="nav0">Start a request</a>
+      <a href="#letter" data-nav="letter" data-i18n="nav1">Decode a letter</a>
+      <a href="#schools" data-nav="schools" data-i18n="nav2">For schools</a>
+      <a href="#become" data-nav="become" data-i18n="nav3">Become a +1</a>
+    </nav>
+    <select id="lang" class="lang" aria-label="Language"><option value="en">EN</option><option value="es">ES</option><option value="zh">中文</option></select>
+    <a class="btn sm" href="#help" data-nav="help" data-i18n="hbtn">Start a request</a>
+  </div>
+</header>
+<main id="main"></main>
+<footer>
+  <div class="wrap">
+    <span><b style="color:var(--ink)">Your +1 in France</b> · French admin, handled in English.</span>
+    <span id="privtxt">Requests you send are kept only to handle them and deleted at the end of the project. We count anonymous visits and clicks, with no name and no IP address. A letter you decode is sent to an AI model only to explain it, and is not kept. Your +1 never asks for passwords.</span>
+    <span><button class="lnk" data-act="tour">Take the tour again</button> · <a href="#helper" data-nav="helper">Léa’s space, the +1 side (demo)</a></span>
+  </div>
+</footer>
+<div id="modal"></div>
+<button class="wa" id="wa" data-act="wa" aria-label="Questions? Text us on WhatsApp"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 20l1.3-3.9A8 8 0 1 1 8 19z"/><path d="M9 9.5c.5 2.2 2.3 4 4.5 4.5l1.2-1.2 2 .8-.4 1.8c-4 0-7.6-3.6-7.6-7.6l1.8-.4.8 2z"/></svg><span data-i18n="wa">Questions? Text us</span></button><div id="sp"></div>
+<div class="toast" id="toast" role="status"></div>
+
+<script>
+// Optional: paste the URL of your Google Apps Script web app to collect anonymous clicks and answers. Empty = nothing is sent anywhere.
+const SHEET_URL='https://script.google.com/macros/s/AKfycbwxz781HWLaIvMtRWQhKWiRb25ZGGJxBZ-on7FoOdejdmXyPZwkLRbzhbZ31itEJyV7zg/exec';
+const SID=Array.from(crypto.getRandomValues(new Uint8Array(5)),b=>b.toString(16).padStart(2,'0')).join('');
+window.__log=[];
+let TEAM=false;try{TEAM=localStorage.getItem('p1_team')==='1'}catch(_){}
+const ON_NETLIFY=/netlify\.app$/.test(location.hostname);
+function toSheet(type,fields){if(!SHEET_URL||!location.protocol.startsWith('http'))return;try{fetch(SHEET_URL,{method:'POST',mode:'no-cors',keepalive:true,headers:{'Content-Type':'text/plain;charset=utf-8'},body:JSON.stringify({type:type,fields:fields})}).catch(()=>{})}catch(_){}}
+function log(ev,d){const row={sid:SID,t:new Date().toISOString(),ev:ev,d:d||{}};window.__log.push(row);
+  if(!TEAM)toSheet('event',{sid:SID,ev:ev,d:d||{},lang:typeof LANG!=='undefined'?LANG:'en'})}
+
+const U=id=>'https://images.unsplash.com/photo-'+id+'?auto=format&fit=crop&w=1200&q=70';
+const IMG={
+ hero:{src:U('1543269865-cbf427effbad'),alt:'Friends laughing together around a table in a café'},
+ call:{src:U('1689848693914-7ba25d9f3334'),alt:'A young woman at her laptop, talking on the phone'},
+ letter:{src:U('1567473030492-533b30c5494c'),alt:'A hand holding a white envelope'},
+ helper:{src:U('1573496357865-c4c50f4b51f3'),alt:'A student working on a laptop'},
+ school:{src:U('1613479193937-2e58cc0ad856'),alt:'A team meeting around a table'},
+ paris:{src:U('1508881070183-8db4c3937880'),alt:'People looking at the Eiffel Tower in Paris'},
+ student:{src:U('1676569645726-f699faed8456'),alt:'A student on a bench, talking on the phone'}};
+const pic=(k,cls,style,inner)=>'<div class="photo '+(cls||'')+'"'+(style?' style="'+style+'"':'')+'><img src="'+IMG[k].src+'" alt="'+IMG[k].alt+'" loading="lazy" onerror="this.style.visibility=\'hidden\'">'+(inner||'')+'</div>';
+
+const CATS=[
+ {k:'health',n:'Health insurance',ex:'CPAM, Ameli, carte Vitale',inst:'the CPAM (health insurance)'},
+ {k:'caf',n:'Housing aid',ex:'CAF, APL',inst:'the CAF'},
+ {k:'bank',n:'Bank',ex:'Blocked card, RIB, account',inst:'your bank advisor'},
+ {k:'phone',n:'Phone and internet',ex:'Operator, SIM, contract',inst:'your phone operator'},
+ {k:'transport',n:'Transport card',ex:'Navigo, Imagine R',inst:'Navigo customer service'},
+ {k:'other',n:'Something else',ex:'Any French office',inst:'the office'}];
+const URG=['Today','This week','No rush'];
+const PLANGS=['Spanish','Chinese','Arabic','Portuguese','Italian','German','Hindi','Other'];
+const SOLVED={health:9,caf:6,bank:4,phone:3,transport:2,other:5};
+const ICO={
+ health:{bg:'#FBE3E6',fg:'#B4234A',d:'<path d="M12 20s-7-4.4-8.6-8.7A4.6 4.6 0 0 1 12 7.6a4.6 4.6 0 0 1 8.6 3.7C19 15.6 12 20 12 20z"/><path d="M12 10.5v5M9.5 13h5"/>'},
+ caf:{bg:'#FDEBD3',fg:'#A35A12',d:'<path d="M3 11.5 12 4l9 7.5"/><path d="M5.5 10v10h13V10"/><path d="M10 20v-5.5h4V20"/>'},
+ bank:{bg:'#E3ECF7',fg:'#2D5B8F',d:'<rect x="3" y="6" width="18" height="12" rx="2"/><path d="M3 10.5h18M7 15h4"/>'},
+ phone:{bg:'#E7F0EA',fg:'#3F6B55',d:'<rect x="7" y="3" width="10" height="18" rx="2"/><path d="M11 18h2"/>'},
+ transport:{bg:'#EEE6F5',fg:'#6A4391',d:'<rect x="5" y="4" width="14" height="13" rx="3"/><path d="M5 11h14M9 14.5h.01M15 14.5h.01M8 21l2-4M16 21l-2-4"/>'},
+ other:{bg:'#F0E3DE',fg:'#5C2438',d:'<path d="M4 5h16v11H9l-5 4z"/><path d="M10 9.2a2 2 0 1 1 2.9 1.8c-.6.3-.9.7-.9 1.3M12 14h.01"/>'}};
+const cico=(k,mini)=>{const i=ICO[k]||ICO.other;return '<span class="'+(mini?'cmini':'cico')+'" style="background:'+i.bg+'" aria-hidden="true"><svg viewBox="0 0 24 24" style="stroke:'+i.fg+'">'+i.d+'</svg></span>'};
+const LIKELY=['Yes, as soon as I have a problem','Probably','Not sure','Probably not','No, I would handle it myself'];
+const BEFORE=['Did it myself in French','Asked a French friend','Used a translation app','Went there in person','Waited or gave up'];
+const LETTERS=[
+ {k:'caf',cat:'caf',from:'CAF de Paris',date:'19 octobre 2026',obj:'Objet : pièce justificative manquante',
+  fr:'Madame, Monsieur, nous ne pouvons pas traiter votre demande d’aide au logement. Il manque : attestation de loyer signée par le bailleur. Merci de nous la transmettre avant le 31 octobre 2026. Sans réponse de votre part, votre dossier sera clôturé.',
+  says:'The CAF cannot process your housing aid request. One document is missing: a rent certificate signed by your landlord.',
+  todo:['Ask your landlord or residence office to fill in and sign the “attestation de loyer”','Upload it in your CAF account, under “Mes démarches”','Keep the confirmation screen'],
+  deadline:'31 Oct 2026',left:12,risk:'If you do nothing, the file is closed and you have to apply again. Months of aid can be lost.'},
+ {k:'cpam',cat:'health',from:'Assurance Maladie · CPAM de Paris',date:'2 octobre 2026',obj:'Objet : demande de pièces, immatriculation',
+  fr:'Pour finaliser votre immatriculation, veuillez nous adresser une copie de votre titre de séjour et un RIB à votre nom, dans un délai de 30 jours à compter de la date du présent courrier.',
+  says:'Health insurance needs two documents to finish registering you: a copy of your residence permit and your bank details (RIB) in your name.',
+  todo:['Download your RIB from your bank app','Scan both sides of your residence permit','Send both in your Ameli account, under “Mes démarches”'],
+  deadline:'1 Nov 2026',left:13,risk:'Without registration you get no social security number, and doctor visits are not reimbursed.'},
+ {k:'bank',cat:'bank',from:'Votre banque · service clients',date:'15 octobre 2026',obj:'Objet : mise à jour de votre dossier',
+  fr:'Dans le cadre de nos obligations réglementaires, nous vous remercions de nous fournir un justificatif de domicile de moins de trois mois avant le 25 octobre 2026. À défaut, certaines opérations pourront être limitées.',
+  says:'Your bank needs a proof of address less than three months old. It is a routine legal check, not a problem with your account.',
+  todo:['Get a recent proof of address: electricity bill, rent receipt or residence certificate','Upload it in your bank app, or bring it to your branch'],
+  deadline:'25 Oct 2026',left:6,risk:'Your card or transfers may be limited until you send it.'}];
+const DOCS={
+ health:['Social security number, if you have one','Residence permit or visa','RIB (bank details) in your name','Proof of address'],
+ bank:['Passport or residence permit','Account number (never your PIN or password)','Proof of address'],
+ caf:['CAF number (numéro allocataire)','Rental contract (bail)','Rent certificate (attestation de loyer)','Residence permit'],
+ phone:['Contract or customer number','Last invoice','Passport or residence permit'],
+ transport:['Navigo or Imagine R card number','School certificate','ID photo'],
+ other:['The letter or email you received','Passport or residence permit']};
+const SOON=[
+ {k:'remind',t:'Deadline reminders',d:'We read the dates in your letters and remind you 7 days and 2 days before each deadline.'},
+ {k:'book',t:'Book an appointment for me',d:'Your +1 books the préfecture, CAF or bank appointment for you and adds it to your calendar.'},
+ {k:'come',t:'A +1 comes with me',d:'For appointments in person, a French-speaking student comes with you and does the talking.'}];
+const PARTNERS=[
+ {k:'bank',n:'Banque Lumière',t:'A French bank account, opened in English',d:'Online in 15 minutes. Student visas accepted. No proof of income needed.'},
+ {k:'sim',n:'Mobi Télécom',t:'A French SIM with English support',d:'€9.99 a month, no commitment, keep your number when you leave.'}];
+const MISSIONS=[
+ {id:'HS-0043',cat:'Bank',urg:'Today',desc:'Card blocked after a payment abroad. Needs a call to the bank advisor to unblock it.'},
+ {id:'HS-0041',cat:'Health insurance',urg:'This week',desc:'Health insurance file has had no update for 3 weeks. The English line hangs up.'},
+ {id:'HS-0044',cat:'Housing aid',urg:'No rush',desc:'CAF asks again for a document the student already sent. Find out what is missing.'}];
+const PLAY=[
+ 'Check the student signed the consent for this case',
+ 'Have the file number ready (numéro de dossier) and the date of birth',
+ 'Open with: « Bonjour, j’appelle de la part d’une étudiante internationale, avec son accord. »',
+ 'Ask for the advisor’s name and a case reference',
+ 'Agree on the next step and a date, then write the log'];
+const PLANS=[
+ {n:'Pilot',price:'€1,500',per:'one semester',items:['100 resolved cases','All topics covered','Semester report','No commitment after the pilot'],feat:true,cta:'Request a pilot'},
+ {n:'Starter',price:'€3,000',per:'per year · up to 300 international students',items:['150 resolved cases','School dashboard','Two semester reports'],cta:'Talk to us'},
+ {n:'Standard',price:'€9,000',per:'per year · up to 1,000 international students',items:['500 resolved cases','Dashboard and topic alerts','Welcome-week session'],cta:'Talk to us'},
+ {n:'Campus',price:'On quote',per:'more than 1,000 students or several campuses',items:['Volume of cases to fit','Dedicated contact','Custom reporting'],cta:'Talk to us'}];
+
+const PAGES=['home','help','letter','schools','become','helper','survey'];
+const S={page:'home',step:'school',school:null,cat:null,desc:'',urg:1,consent:true,err:'',matched:false,stage:1,rating:0,ans:null,before:[],sent:false,
+ letter:null,decoded:false,from:null,docs:{},hideP:false,pilot:null,applied:false,
+ h:{cur:null,checks:{},logged:{},done:{}}};
+const $=s=>document.querySelector(s);
+const esc=s=>String(s).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+const cat=()=>CATS.find(c=>c.k===S.cat)||CATS[0];
+const btn=(t,a,o)=>{o=o||{};return '<button class="btn'+(o.cls?' '+o.cls:'')+'" data-act="'+a+'"'+(o.dis?' disabled':'')+'>'+t+(o.arrow===false?'':'<span aria-hidden="true">→</span>')+'</button>'};
+
+/* ---------- Home ---------- */
+/* ---------- Languages ---------- */
+// Optional: your team's WhatsApp number in international format without + or spaces, e.g. '33612345678'. Empty = demo message.
+const WHATSAPP='';
+const T={
+en:{nav:['Start a request','Decode a letter','For schools','Become a +1'],hbtn:'Start a request',eb:'For international students in France',h1a:'French admin,',h1b:'handled in English.',lead:'Tell us your problem in English. A French-speaking student, your +1, calls the CAF, the CPAM, your bank or your operator for you, until it is solved.',sl:'What is your problem?',sph:'e.g. blocked card, CAF letter, Navigo…',sbtn:'Find help',or:'or',now:'Start my request',dec:'Decode a letter',free:'Free for students of partner schools · No passwords asked',tourl:'How does it work? Take the 30-second tour',trust:['First contact within 2 hours','Every call logged and translated','Closed only when you confirm','Paid by your school'],howeb:'How it works',howh:'Four steps, and you see every one',howl:'You never have to speak French or wait on hold.',steps:[['Describe your problem','In two minutes. Pick a topic like health insurance or the CAF, and add a few words.'],['Your +1 calls in French','A trained French-speaking student calls the office for you, usually within 2 hours.'],['You see every call','Date, reference and what was said, translated for you.'],['You confirm it is solved','Your case closes only when you say so. It is free: your school pays for the service.']],startreq:'Start my request',pickeb:'Pick your problem',pickh:'What our +1s handle every week',pickl:'Choose a topic to start. It takes two minutes.',start:'Start →',cats:['Health insurance','Housing aid','Bank','Phone and internet','Transport card','Something else'],leteb:'Letter decoder',leth:'Got a letter in French?',letp:'We explain it in English: what it says, what you must do, and the deadline. If you want, your +1 handles it.',sooneb:'Coming soon',soonh:'Tell us what to build next',soonl:'These are not ready yet. Tap the ones you would use: the most wanted get built first.',soon:[['Deadline reminders','We read the dates in your letters and remind you 7 days and 2 days before each deadline.'],['Book an appointment for me','Your +1 books the préfecture, CAF or bank appointment for you and adds it to your calendar.'],['A +1 comes with me','For appointments in person, a French-speaking student comes with you and does the talking.']],soonq:'This is not built yet. Would you use it?',yes:'Yes, I would use it',no:'Not for me',nseb:'Not a student?',nsh:'Two more ways to join',note:'',wa:'Questions? Text us',nomatch:'Something else',decoderow:'Decode my letter',
+ tour:[['Welcome to Your +1 in France','A quick tour of the site in 30 seconds. You can skip it at any time.'],['Start here','Type your problem in your own words. We point you to the right help.'],['Start your request here','Answer a few questions in two minutes. Then a French-speaking student, your +1, calls the office for you.'],['Got a letter in French?','We explain it in plain words, with the deadline and what to do.'],['Your language','Choose English, Español or 中文 for the main pages.'],['A question?','Text the team on WhatsApp at any time.'],['You are ready','Start a request now, or look around first.']],skip:'Skip the tour',next:'Next',back:'Back',look:'Look around first'},
+es:{nav:['Iniciar solicitud','Descifrar una carta','Para escuelas','Ser un +1'],hbtn:'Iniciar solicitud',eb:'Para estudiantes internacionales en Francia',h1a:'Trámites en francés,',h1b:'sin hablar francés.',lead:'Cuéntanos tu problema. Un estudiante francófono, tu +1, llama a la CAF, la CPAM, tu banco o tu operador por ti, hasta que esté resuelto.',sl:'¿Cuál es tu problema?',sph:'p. ej. tarjeta bloqueada, carta de la CAF, Navigo…',sbtn:'Buscar ayuda',or:'o',now:'Empezar mi solicitud',dec:'Descifrar una carta',free:'Gratis para estudiantes de escuelas asociadas · Nunca pedimos contraseñas',tourl:'¿Cómo funciona? Haz el recorrido de 30 segundos',trust:['Primer contacto en menos de 2 horas','Cada llamada registrada y traducida','Se cierra solo cuando tú lo confirmas','Lo paga tu escuela'],howeb:'Cómo funciona',howh:'Cuatro pasos, y los ves todos',howl:'Nunca tendrás que hablar francés ni esperar al teléfono.',steps:[['Describe tu problema','En dos minutos. Elige un tema, como el seguro médico o la CAF, y añade unas palabras.'],['Tu +1 llama en francés','Un estudiante francófono formado llama a la oficina por ti, normalmente en menos de 2 horas.'],['Ves cada llamada','Fecha, referencia y lo que se dijo, traducido para ti.'],['Confirmas que está resuelto','Tu caso solo se cierra cuando tú lo dices. Es gratis: lo paga tu escuela.']],startreq:'Empezar mi solicitud',pickeb:'Elige tu problema',pickh:'Lo que nuestros +1 resuelven cada semana',pickl:'Elige un tema para empezar. Son dos minutos.',start:'Empezar →',cats:['Seguro médico','Ayuda para la vivienda','Banco','Teléfono e internet','Tarjeta de transporte','Otra cosa'],leteb:'Descifrador de cartas',leth:'¿Recibiste una carta en francés?',letp:'Te la explicamos: qué dice, qué debes hacer y la fecha límite. Si quieres, tu +1 se encarga.',sooneb:'Muy pronto',soonh:'Dinos qué construir después',soonl:'Aún no están listas. Toca las que usarías: las más pedidas se harán primero.',soon:[['Recordatorios de plazos','Leemos las fechas de tus cartas y te avisamos 7 días y 2 días antes de cada plazo.'],['Pedir una cita por mí','Tu +1 pide la cita en la prefectura, la CAF o el banco y la añade a tu calendario.'],['Un +1 me acompaña','Para citas presenciales, un estudiante francófono va contigo y habla por ti.']],soonq:'Aún no existe. ¿La usarías?',yes:'Sí, la usaría',no:'No es para mí',nseb:'¿No eres estudiante?',nsh:'Dos formas más de participar',note:'Demo: las demás páginas siguen en inglés.',wa:'¿Dudas? Escríbenos',nomatch:'Otra cosa',decoderow:'Descifrar mi carta',
+ tour:[['Bienvenido a Your +1 in France','Un recorrido rápido de 30 segundos. Puedes saltarlo cuando quieras.'],['Empieza aquí','Escribe tu problema con tus palabras. Te llevamos a la ayuda adecuada.'],['Empieza tu solicitud aquí','Responde unas preguntas en dos minutos. Luego un estudiante francófono, tu +1, llama a la oficina por ti.'],['¿Una carta en francés?','Te la explicamos con palabras simples, con la fecha límite y qué hacer.'],['Tu idioma','Elige English, Español o 中文 para las páginas principales.'],['¿Una pregunta?','Escribe al equipo por WhatsApp cuando quieras.'],['¡Listo!','Empieza una solicitud ahora o echa un vistazo primero.']],skip:'Saltar',next:'Siguiente',back:'Atrás',look:'Echar un vistazo'},
+zh:{nav:['提交请求','解读信件','院校合作','成为 +1'],hbtn:'提交请求',eb:'面向在法国的国际学生',h1a:'法国行政手续，',h1b:'不会法语也能搞定。',lead:'告诉我们你的问题。一位会说法语的学生（你的 +1）会替你联系 CAF、CPAM、银行或运营商，直到问题解决。',sl:'你遇到了什么问题？',sph:'例如：银行卡被冻结、CAF 来信、Navigo…',sbtn:'查找帮助',or:'或',now:'开始我的请求',dec:'解读一封信',free:'合作院校学生免费 · 绝不索要密码',tourl:'如何使用？30 秒快速导览',trust:['2 小时内首次联系','每次通话都有记录和翻译','只有你确认后才结案','费用由学校支付'],howeb:'使用流程',howh:'四个步骤，每一步都清清楚楚',howl:'你不用说法语，也不用在电话里排队等待。',steps:[['描述你的问题','两分钟搞定。选择一个主题（如医保或 CAF），再写几句话。'],['你的 +1 用法语打电话','经过培训、会说法语的学生替你联系机构，通常在 2 小时内。'],['每次通话你都看得到','日期、编号和通话内容，全部翻译给你。'],['由你确认问题已解决','只有你确认后才会结案。完全免费：费用由学校支付。']],startreq:'开始提交请求',pickeb:'选择你的问题',pickh:'我们的 +1 每周处理的事务',pickl:'选择一个主题开始，只需两分钟。',start:'开始 →',cats:['医疗保险','住房补助','银行','电话和网络','交通卡','其他'],leteb:'信件解读',leth:'收到法语信件了吗？',letp:'我们为你解释：信里说了什么、你要做什么、截止日期是哪天。需要的话，你的 +1 可以帮你处理。',sooneb:'即将推出',soonh:'告诉我们下一步做什么',soonl:'这些功能还未上线。点击你会用的功能，呼声最高的会优先开发。',soon:[['截止日期提醒','我们读取信件中的日期，在截止前 7 天和 2 天提醒你。'],['帮我预约','你的 +1 帮你预约警察局、CAF 或银行，并添加到你的日历。'],['+1 陪我去办事','需要当面办理时，会说法语的学生陪你一起去，替你沟通。']],soonq:'该功能尚未上线。你会使用吗？',yes:'会，我会用',no:'不需要',nseb:'不是学生？',nsh:'另外两种参与方式',note:'演示版：其他页面暂为英文。',wa:'有疑问？给我们发消息',nomatch:'其他',decoderow:'解读我的信件',
+ tour:[['欢迎来到 Your +1 in France','30 秒快速了解本网站，可随时跳过。'],['从这里开始','用你自己的话描述问题，我们会为你找到合适的帮助。'],['从这里提交请求','两分钟回答几个问题，之后会说法语的学生（你的 +1）会替你联系机构。'],['收到法语信件？','我们用简单的话解释信件内容、截止日期和你该做什么。'],['选择语言','主要页面可选择 English、Español 或 中文。'],['有问题？','随时通过 WhatsApp 联系我们的团队。'],['准备好了','现在就提交请求，或先随便看看。']],skip:'跳过导览',next:'下一步',back:'上一步',look:'先看看'}};
+let LANG='en';try{const l=localStorage.getItem('p1_lang');if(T[l])LANG=l}catch(_){}
+const t=k=>T[LANG][k];
+function applyLang(){document.documentElement.lang=LANG==='zh'?'zh-CN':LANG;$('#lang').value=LANG;
+ document.querySelectorAll('[data-i18n]').forEach(el=>{const k=el.dataset.i18n;el.textContent=k.startsWith('nav')?t('nav')[+k.slice(3)]:t(k)})}
+
+/* ---------- Real pilot (Google Form, 28 to 30 Sept 2026) ---------- */
+const PILOT=[
+ {k:'health',t:'Health insurance stuck for 3 weeks',d:'Sent every document to Ameli on 4 September. Three weeks later the status still said “sent”, and the English line kept hanging up.',u:'This week',o:'Solved: we called Ameli and passed on exactly what the student asked.',st:'ok'},
+ {k:'bank',t:'Bank fees after closing an account',d:'The bank kept charging fees after the student asked to close the account. The balance went negative and the bank owes money back.',u:'No rush',o:'In progress: the bank is slow to reply, we keep following up.',st:'wait'},
+ {k:'transport',t:'Imagine R card blocked online',d:'The student could not buy the Imagine R transport card online. The site said to call customer service, in French.',u:'Today',o:'Solved: the card is now bought.',st:'ok'},
+ {k:'phone',t:'Concert tickets needing a French number',d:'The ticket site required a French phone number the student did not have.',u:'Today',o:'Solved: our +1 bought them with her French number.',st:'ok'},
+ {k:'other',t:'Visa platform stuck',d:'A technical error on the visa platform blocked the student from going further.',u:'Today',o:'Not solved: a bug on the official platform, beyond what a call can fix.',st:'no'}];
+const PSTATS=[['5','real requests in 3 days','from 3 WhatsApp groups, about 200 students'],['3 of 5','solved','1 still in progress, 1 out of reach by phone'],['5 of 5','rate their French 1 out of 5','for dealing with this alone'],['3 of 5','had nobody to help in French','the others only “sometimes”'],['3 of 5','needed help the same day','“Today” as urgency']];
+function pilotSection(sch){return '<section class="pilot"><div class="wrap"><div class="sec-head"><span class="eyebrow">Real · our September pilot</span><h2>Not a mock-up: real requests we handled</h2><p class="lead">We tested the service with a simple form shared in student WhatsApp groups. Our team took every request by hand. Here they are, without names or numbers.</p></div>'
+ +'<div class="pstats">'+PSTATS.map(x=>'<div><strong>'+x[0]+'</strong><span>'+x[1]+'</span><small>'+x[2]+'</small></div>').join('')+'</div>'
+ +'<div class="cases-real">'+PILOT.map((c,n)=>'<article class="casefile"><div class="cf-top"><span>Request '+(n+1)+' of 5</span><span>Urgency: '+c.u+'</span></div><h3>'+c.t+'</h3><p class="cf-quote">“'+c.d+'”</p>'+'<span class="cf-out '+c.st+'">'+c.o+'</span>'+'</article>').join('')
+ +(sch?'<article class="casefile cta"><h3>Your students have the same problems</h3><p>Each of these would otherwise land at your international office.</p><a class="btn sm" href="#pilot">Request a pilot</a></article>':'<article class="casefile cta"><h3>Same kind of problem?</h3><p>Send it to us. Our team handles it, just like these.</p>'+btn('Start my request','go:help',{cls:'sm'})+'</article>')
+ +'</div></div></section>'}
+
+/* ---------- Search ---------- */
+const KW={health:['health','insurance','cpam','ameli','vitale','doctor','médecin','medecin','mutuelle','sécu','secu','social security','seguro','médico','medico','salud','医保','医疗','保险','看病'],
+ caf:['caf','apl','housing','rent','loyer','logement','vivienda','alquiler','住房','房租','补助'],
+ bank:['bank','card','blocked','rib','account','banque','carte','compte','banco','tarjeta','cuenta','bloquead','银行','卡','账户'],
+ phone:['phone','sim','internet','operator','contract','forfait','box','teléfono','telefono','móvil','movil','电话','手机','网络'],
+ transport:['navigo','imagine','transport','metro','métro','ratp','train','transporte','交通','地铁']};
+const LETTER_KW=['letter','courrier','lettre','mail','carta','信'];
+function matches(q){q=q.toLowerCase().trim();if(q.length<2)return {cats:[],letter:false};
+ const cats=Object.keys(KW).filter(k=>KW[k].some(w=>q.includes(w)));return {cats,letter:LETTER_KW.some(w=>q.includes(w))}}
+function suggHtml(q){const m=matches(q);if(q.trim().length<2)return '';
+ const rows=m.cats.slice(0,3).map(k=>'<button data-act="pick:'+k+'"><span>'+t('cats')[CATS.findIndex(c=>c.k===k)]+'</span><b>'+t('now')+' →</b></button>');
+ if(m.letter)rows.unshift('<button data-act="go:letter"><span>'+t('decoderow')+'</span><b>'+t('dec')+' →</b></button>');
+ if(!rows.length)rows.push('<button data-act="pick:other"><span>'+t('nomatch')+'</span><b>'+t('now')+' →</b></button>');
+ return rows.join('')}
+
+/* ---------- Home ---------- */
+function home(){const steps=t('steps'),cn=t('cats');return '<div class="wrap"><div class="hero"><div class="stack" style="gap:20px"><span class="eyebrow">'+t('eb')+'</span><h1>'+t('h1a')+' <span>'+t('h1b')+'</span></h1><p class="lead" style="font-size:18px">'+t('lead')+'</p>'
+ +(t('note')?'<p class="tiny">'+t('note')+'</p>':'')
+ +'<div class="stack" style="gap:8px" id="searchbox"><label class="lbl" for="q">'+t('sl')+'</label><form class="searchbar" id="sform" role="search"><input id="q" type="text" autocomplete="off" placeholder="'+t('sph')+'" value="'+esc(S.q||'')+'"><button class="btn" type="submit">'+t('sbtn')+'</button></form><div class="sugg" id="sugg" aria-live="polite">'+suggHtml(S.q||'')+'</div></div>'
+ +'<div class="or"><span>'+t('or')+'</span></div><div class="hero-ctas"><button class="btn" id="heroHelp" data-act="go:help">'+t('now')+'<span aria-hidden="true">→</span></button><button class="btn alt" id="heroLetter" data-act="go:letter">'+t('dec')+'</button></div>'
+ +'<p class="tiny">'+t('free')+' · <button class="lnk" data-act="tour" style="min-height:0">'+t('tourl')+'</button></p></div>'
+ +pic('hero','hero-photo','','<div class="float"><div style="display:flex;justify-content:space-between;gap:8px;align-items:center"><b style="font-size:14px">Call log · CPAM</b><span class="pill ok">Solved in 2 days</span></div><div class="meta"><span>16 Oct · 08:42</span><span>11 min</span><span>Ref. 4F-2731</span></div><span class="fr" style="font-size:14px">« Le dossier a été relancé. »</span><span class="tiny">The file has been relaunched.</span></div>')+'</div>'
+ +'<div class="trust">'+t('trust').map(x=>'<div><i></i>'+x+'</div>').join('')+'</div></div>'
+ +'<section class="alt-bg" style="margin-top:48px"><div class="wrap"><div class="sec-head"><span class="eyebrow">'+t('howeb')+'</span><h2>'+t('howh')+'</h2><p class="lead">'+t('howl')+'</p></div><div class="timeline">'
+ +steps.map((x,i)=>'<div class="tstep"><span class="n">'+(i+1)+'</span><h3>'+x[0]+'</h3><p>'+x[1]+'</p></div>').join('')+'</div><div style="margin-top:36px">'+btn(t('startreq'),'go:help')+'</div></div></section>'
+ +'<section><div class="wrap grid2" style="align-items:center"><div class="sec-head" style="margin:0"><span class="eyebrow">'+t('sooneb')+'</span><h2>'+t('soonh')+'</h2><p class="lead">'+t('soonl')+'</p></div><div class="stack" style="gap:10px">'
+ +SOON.map((x,i)=>'<button class="soonrow" data-act="soon:'+x.k+'"><span class="t">'+t('soon')[i][0]+'<small>'+t('soon')[i][1]+'</small></span><span class="soon">Soon</span></button>').join('')+'</div></div></section>'
+ +'<section class="alt-bg"><div class="wrap"><div class="sec-head"><span class="eyebrow">'+t('pickeb')+'</span><h2>'+t('pickh')+'</h2><p class="lead">'+t('pickl')+'</p></div><div class="grid3">'
+ +CATS.map((c,i)=>'<button class="catcard" data-act="startcat:'+c.k+'">'+cico(c.k)+'<b>'+cn[i]+'</b><small>'+c.ex+'</small><span>'+t('start')+'</span></button>').join('')+'</div></div></section>'
+ +pilotSection()
+ +'<section><div class="wrap"><div class="band"><div class="txt"><span class="eyebrow" style="background:#ffffff1f;color:var(--rose)">'+t('leteb')+'</span><h2>'+t('leth')+'</h2><p style="font-size:17px">'+t('letp')+'</p><div>'+btn(t('dec'),'go:letter',{cls:'lg'})+'</div></div>'+pic('letter')+'</div></div></section>'
+ +'<section><div class="wrap"><div class="sec-head"><span class="eyebrow">'+t('nseb')+'</span><h2>'+t('nsh')+'</h2></div><div class="duo">'
+ +'<div class="card">'+pic('school')+'<div class="in"><span class="eyebrow">For schools</span><h3>Support your international students without adding staff</h3><p>One subscription, priced per student covered. You see what was solved, never the details.</p><a class="btn alt sm" href="#schools" data-nav="schools">See plans and prices</a></div></div>'
+ +'<div class="card">'+pic('helper')+'<div class="in"><span class="eyebrow">Become a +1</span><h3>Speak French? Help students and get paid per case</h3><p>Flexible hours, call playbooks, and €10 for every case the student confirms as solved.</p><a class="btn alt sm" href="#become" data-nav="become">Apply as a +1</a></div></div>'
+ +'</div></div></section>'}
+
+/* ---------- Spotlight tour ---------- */
+const TSEL=[null,'#searchbox','#heroHelp','#heroLetter','#lang','#wa',null];
+let tourI=-1;
+function tour(i){if(S.page!=='home'){setPage('home')}
+ tourI=i;const tx=t('tour')[i],n=TSEL.length,last=i===n-1;
+ $('#sp').innerHTML='<div class="sp" role="dialog" aria-modal="true" aria-label="Tour"><div class="sp-hole"></div><div class="sp-tip"><span class="sp-arrow"></span><span class="sp-count">'+(i+1)+' / '+n+'</span><h3>'+tx[0]+'</h3><p>'+tx[1]+'</p>'
+ +(last?'<div class="stack" style="gap:8px">'+btn(t('now'),'tourend:help',{cls:'block'})+'<button class="btn alt block" data-act="tourend:look">'+t('look')+'<span aria-hidden="true">→</span></button></div>'
+ :'<div class="sp-nav"><button class="lnk" data-act="tourskip">'+t('skip')+'</button><div class="row-btns">'+(i?'<button class="btn ghost sm" data-act="tourgo:'+(i-1)+'">'+t('back')+'</button>':'')+btn(t('next'),'tourgo:'+(i+1),{cls:'sm'})+'</div></div>')
+ +'</div></div>';
+ const sel=TSEL[i];let el=sel&&document.querySelector(sel);
+ if(el&&el.id==='lang'&&getComputedStyle(el).display==='none')el=null;
+ if(el){const r=el.getBoundingClientRect();if(r.top<90||r.bottom>innerHeight-40)el.scrollIntoView({block:'center',behavior:'instant'})}
+ requestAnimationFrame(()=>placeTour(el));
+ const bs=document.querySelectorAll('.sp-tip .btn');if(bs.length)bs[bs.length-1].focus({preventScroll:true})}
+function placeTour(el){const hole=$('.sp-hole'),tip=$('.sp-tip'),ar=$('.sp-arrow');if(!hole)return;
+ const vw=innerWidth,vh=innerHeight,tw=tip.offsetWidth,th=tip.offsetHeight;
+ if(!el){hole.classList.remove('ring');Object.assign(hole.style,{left:vw/2+'px',top:vh/2+'px',width:'0px',height:'0px'});tip.style.left=(vw-tw)/2+'px';tip.style.top=Math.max(16,(vh-th)/2)+'px';ar.style.display='none';return}
+ const r=el.getBoundingClientRect(),pad=8;hole.classList.add('ring');
+ Object.assign(hole.style,{left:(r.left-pad)+'px',top:(r.top-pad)+'px',width:(r.width+pad*2)+'px',height:(r.height+pad*2)+'px'});
+ let left=Math.min(Math.max(16,r.left+r.width/2-tw/2),vw-tw-16);let top,arTop;
+ const below=vh-r.bottom>th+40;
+ if(below){top=r.bottom+pad+18;arTop=-9}else{top=Math.max(16,r.top-pad-18-th);arTop=th-9}
+ tip.style.left=left+'px';tip.style.top=top+'px';
+ ar.style.display='block';ar.style.top=arTop+'px';ar.style.left=Math.min(Math.max(14,r.left+r.width/2-left-9),tw-32)+'px'}
+function tourDone(){try{localStorage.setItem('p1_tour2','1')}catch(_){}tourI=-1;$('#sp').innerHTML=''}
+window.addEventListener('resize',()=>{if(tourI>=0){const s=TSEL[tourI];placeTour(s&&document.querySelector(s))}});
+window.addEventListener('scroll',()=>{if(tourI>=0){const s=TSEL[tourI];placeTour(s&&document.querySelector(s))}},{passive:true});
+
+/* ---------- Messages ---------- */
+const QUICK={lea:['I will call them tomorrow at 8:30, when the lines open.','Can you send me your file number? Only the number, no password.','I am on hold with them, I will update you soon.','It is solved on their side. Can you check and confirm?'],
+ student:['Thank you!','When will you call them?','I have the document ready.','It is still not solved on my side.']};
+const now=()=>{const d=new Date();return String(d.getHours()).padStart(2,'0')+':'+String(d.getMinutes()).padStart(2,'0')};
+function seedMsgs(){if(!S.msgs)S.msgs=[];const c=cat();
+ if(S.stage>=2&&!S.msgs.some(m=>m.k==='hi'))S.msgs.unshift({from:'lea',k:'hi',t:'10:21',text:'Hi! I’m Léa, your +1. I will call '+c.inst+' tomorrow at 8:30, when the lines open. I’ll send you the call log right after.'});
+ if(S.stage>=4&&!S.msgs.some(m=>m.k==='done'))S.msgs.push({from:'lea',k:'done',t:now(),text:'Good news: '+c.inst+' confirmed that your file is processed. Can you check on your side and confirm it is solved?'})}
+function thread(role){seedMsgs();const other=role==='lea'?'the student':'Léa',id=role==='lea'?'hmsg':'smsg';
+ return '<div class="thread"><div class="thread-head"><h3>Messages with '+other+'</h3><span class="pill grey">Kept in this case · no phone numbers shared</span></div>'
+ +'<div class="bubbles" id="bubbles-'+role+'">'+(S.msgs.length?S.msgs.map(m=>'<div class="bubble '+(m.from===role?'me':'them')+'"><small>'+(m.from==='lea'?'Léa':'Student')+' · '+m.t+'</small>'+esc(m.text)+'</div>').join(''):'<p class="tiny">No messages yet.</p>')+'</div>'
+ +'<div class="quick" aria-label="Quick replies">'+QUICK[role].map((q,i)=>'<button data-act="quick:'+role+':'+i+'">'+esc(q)+'</button>').join('')+'</div>'
+ +'<form class="composer" data-role="'+role+'"><label for="'+id+'" class="visually-hidden" style="position:absolute;left:-9999px">Your message</label><textarea id="'+id+'" rows="1" placeholder="Write a message to '+other+'…">'+esc((S.draft&&S.draft[role])||'')+'</textarea><button class="btn sm" type="submit">Send</button></form>'
+ +'<p class="tiny">'+(role==='lea'?'The student gets a notification by email or SMS, then replies here.':'You get a notification by email or SMS when Léa writes to you.')+'</p></div>'}
+function sendMsg(role,text){text=(text||'').trim();if(!text)return;S.msgs.push({from:role,t:now(),text});if(S.draft)S.draft[role]='';
+ log('message',{from:role,length:text.length});render();
+ const b=$('#bubbles-'+role);if(b)b.scrollTop=b.scrollHeight;
+ if(role==='student'&&!S.leaSeen){setTimeout(()=>{S.msgs.push({from:'lea',t:now(),text:'Thanks, noted! I will get back to you right after my call.'});if(S.page==='help')render();const bb=$('#bubbles-student');if(bb)bb.scrollTop=bb.scrollHeight},2500)}}
+
+/* ---------- Real requests (Netlify Forms) ---------- */
+function postForm(name,obj){const f=Object.assign({'form-name':name,'bot-field':'',site_language:LANG},obj);toSheet(name==='request'||name==='survey'?name:'feedback',Object.assign({},f));if(!ON_NETLIFY)return Promise.resolve(true);
+ return fetch('/',{method:'POST',headers:{'Content-Type':'application/x-www-form-urlencoded'},body:new URLSearchParams(f).toString()}).then(r=>r.ok).catch(()=>false)}
+function sendRequest(){S.sendState='sending';const cm=S.cm||'WhatsApp';
+ const f={'form-name':'request','bot-field':'',subject:'New +1 request: '+cat().n+' ('+URG[S.urg]+')',first_name:S.fname||'',description:S.desc||'',topic:cat().n,urgency:URG[S.urg],school:S.school==='hec'?'HEC Paris':S.school==='edhec'?'EDHEC':S.school==='other'?'Another school':'Not given',contact_method:cm,contact:S.contact||'',email:cm==='Email'?(S.contact||''):'',language_preference:S.pref?(S.plang||''):'',site_language:LANG,source:S.from||'direct'};
+ toSheet('request',Object.assign({},f));
+ if(!ON_NETLIFY){S.sendState=SHEET_URL?'sent':'failed';setTimeout(()=>{if(S.page==='help')render()},300);return}
+ fetch('/',{method:'POST',headers:{'Content-Type':'application/x-www-form-urlencoded'},body:new URLSearchParams(f).toString()})
+  .then(r=>{S.sendState=r.ok?'sent':'failed'}).catch(()=>{S.sendState='failed'}).finally(()=>{if(S.page==='help')render()})}
+const sentBox=()=>S.sendState==='sent'?'<div class="good"><b>Your request reached our team.</b>We will contact you by '+esc(S.cm||'WhatsApp')+' within 2 hours (9am to 9pm). Below is a preview of how your case will look in the full app.</div>'
+ :S.sendState==='failed'?'<div class="notice"><b>Your request could not be sent.</b>Check your connection and send it again, or text us on WhatsApp.</div>'
+ :S.sendState==='sending'?'<div class="notice" style="background:var(--paper-2);border-color:var(--line);color:var(--ink)">Sending your request…</div>':'';
+
+/* ---------- Student survey (EDHEC and others) ---------- */
+const SQ={
+ program:['Bachelor','Master / MSc','MBA / Executive','Exchange semester','Other'],
+ time:['Less than 3 months','3 to 12 months','1 to 2 years','More than 2 years'],
+ tasks:['Health insurance (CPAM, Ameli)','Housing aid (CAF)','Bank','Phone or internet','Transport card','Residence permit or préfecture','Taxes','Landlord or housing','None of these'],
+ how:['Did it alone in French','Asked a French friend','Asked my school’s service','Used a translation app or ChatGPT','Went there in person','Not solved yet','Gave up'],
+ spent:['Less than 1 hour','1 to 5 hours','1 to 3 days of back and forth','More than a week','Still not solved'],
+ knows:['Yes, and I used it','Yes, but I never used it','No, I did not know'],
+ did:['Gave me information or links','Answered my email','Helped me fill in a form','Called the office for me','Came with me in person','Nothing really useful'],
+ solved:['Yes, fully','Partly','No'],
+ speed:['The same day','In 2 or 3 days','A week or more','They never answered'],
+ whynot:['I did not know it could help','My problem seemed too personal','Too slow or hard to reach','Opening hours did not fit','I prefer asking friends','Other'],
+ payer:['My school','Me, per request','Me, with a monthly plan','The institutions or partners (banks, operators)','Nobody: it should be free'],
+ price:['€0, I would not pay','Up to €5','€5 to €10','€10 to €20','More than €20']};
+const SV=()=>S.sv||(S.sv={});
+function sOne(k,opts,cls){const v=SV()[k];return '<div class="chips" role="radiogroup">'+opts.map((o,i)=>'<button class="chip'+(cls?' '+cls:'')+'" role="radio" aria-checked="'+(v===i)+'" aria-pressed="'+(v===i)+'" data-act="sv:'+k+':'+i+'">'+o+'</button>').join('')+'</div>'}
+function sMany(k,opts){const v=SV()[k]||[];return '<div class="chips" role="group">'+opts.map((o,i)=>'<button class="chip" aria-pressed="'+v.includes(i)+'" data-act="svm:'+k+':'+i+'">'+o+'</button>').join('')+'</div>'}
+function sScale(k,lo,hi){const v=SV()[k];return '<div class="row-btns" style="align-items:center;gap:8px"><span class="tiny">'+lo+'</span>'+[1,2,3,4,5].map(n=>'<button class="star'+(v===n?' on':'')+'" style="font-size:16px;width:48px;height:48px" aria-pressed="'+(v===n)+'" aria-label="'+n+' out of 5" data-act="svs:'+k+':'+n+'">'+n+'</button>').join('')+'<span class="tiny">'+hi+'</span></div>'}
+const sQ=(n,q,body,hint)=>'<div class="card" style="gap:12px"><span class="sec-label">Question '+n+'</span><h3>'+q+'</h3>'+(hint?'<p>'+hint+'</p>':'')+body+'</div>';
+function survey(){const v=SV(),sch=S.svSchool||(S.school==='edhec'?'EDHEC':S.school==='hec'?'HEC Paris':'EDHEC');
+ if(S.svSent)return '<div class="wrap" style="max-width:760px;padding-block:56px"><div class="stack" style="gap:18px"><span class="eyebrow" style="background:var(--ok-soft);color:var(--ok)">Thank you</span><h1>Thanks, your answers are in.</h1><p class="lead">They help our HEC student project understand what international students really need. Nothing is linked to your name.</p><div class="row-btns">'+btn('See how our service works','go:home')+'<button class="btn alt" data-act="go:letter">Try the letter decoder</button></div></div></div>';
+ const used=v.knows===0,notUsed=v.knows===1;
+ return '<div class="wrap" style="max-width:820px;padding-block:40px 72px"><div class="stack" style="gap:18px">'
+ +'<span class="eyebrow">Student survey · about 3 minutes</span><h1 style="font-size:clamp(32px,4.4vw,48px)">How do you handle French admin'+(sch==='Other'?'':' at '+(sch==='HEC Paris'?'HEC':sch))+'?</h1>'
+ +'<p class="lead">We are HEC students working on a project about international students and French administration. '+(sch==='Other'?'':sch+' offers support to international students, and we want to understand how well it works for you. ')+'Answers are anonymous. Questions marked * are required.</p>'
+ +'<div class="field" style="max-width:360px"><label class="lbl" for="svSchool">Your school</label><select id="svSchool">'+['EDHEC','HEC Paris','ESSEC','ESCP','Other'].map(x=>'<option'+((S.svSchool||(S.school==='edhec'?'EDHEC':S.school==='hec'?'HEC Paris':'EDHEC'))===x?' selected':'')+'>'+x+'</option>').join('')+'</select></div>'
+ +'<span class="sec-label" style="margin-top:12px">About you</span>'
+ +sQ(1,'What are you studying? *',sOne('program',SQ.program))
+ +sQ(2,'How long have you been in France? *',sOne('time',SQ.time))
+ +sQ(3,'How comfortable are you dealing with French admin in French? *',sScale('french','Not at all','Fully'))
+ +'<span class="sec-label" style="margin-top:12px">Your last real experience</span>'
+ +sQ(4,'In the last 6 months, which of these did you have to deal with? *',sMany('tasks',SQ.tasks),'Pick all that apply.')
+ +sQ(5,'Think of the last one. How did you handle it? *',sMany('how',SQ.how),'Pick all that apply.')
+ +sQ(6,'How much time did it take you in total?',sOne('spent',SQ.spent))
+ +'<span class="sec-label" style="margin-top:12px">Your school’s support</span>'
+ +sQ(7,'Do you know your school’s support service for international students? *',sOne('knows',SQ.knows))
+ +(used?sQ('7a','How satisfied are you with it overall? *',sScale('sat','Not at all','Very'))
+   +sQ('7b','What did they actually do for you?',sMany('did',SQ.did),'Pick all that apply.')
+   +sQ('7c','Did it solve your problem?',sOne('solved',SQ.solved))
+   +sQ('7d','How fast did you get help?',sOne('speed',SQ.speed)):'')
+ +(notUsed?sQ('7a','Why did you not use it?',sMany('whynot',SQ.whynot),'Pick all that apply.'):'')
+ +'<span class="sec-label" style="margin-top:12px">A service like ours</span>'
+ +sQ(8,'Imagine a French-speaking student calls the office for you and follows your case until it is solved. How useful would that be? *',sScale('useful','Not useful','Very useful'))
+ +sQ(9,'Who should pay for a service like this? *',sOne('payer',SQ.payer))
+ +sQ(10,'If you had to pay yourself, what is the most you would pay for one solved case?',sOne('price',SQ.price))
+ +sQ(11,'What is the most frustrating thing about French admin for you?','<textarea id="svFrus" rows="3" placeholder="Optional">'+esc(v.frus||'')+'</textarea>')
+ +sQ(12,'Could we ask you a few more questions in a 15-minute call?','<div class="field"><label class="lbl" for="svMail">Email (optional)</label><input id="svMail" type="text" autocomplete="email" placeholder="you@example.com" value="'+esc(v.mail||'')+'"></div>','Only if you want. We use it once, for this call.')
+ +'<p class="err" role="alert">'+(S.svErr||'')+'</p><div class="row-btns">'+btn('Send my answers','svsend')+'</div><p class="tiny">Anonymous HEC student project. We never share your answers.</p></div></div>'}
+function sendSurvey(){const v=SV(),req=[['program','question 1'],['time','question 2'],['french','question 3'],['tasks','question 4'],['how','question 5'],['knows','question 7'],['useful','question 8'],['payer','question 9']];
+ if(v.knows===0)req.splice(6,0,['sat','question 7a']);
+ const miss=req.find(([k])=>v[k]===undefined||(Array.isArray(v[k])&&!v[k].length));
+ if(miss){S.svErr='Please answer '+miss[1]+'.';render();toast('Please answer '+miss[1]);return}
+ if(v.mail&&!/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(v.mail.trim())){S.svErr='This email does not look right. Fix it or leave it empty.';render();return}
+ const one=(k,o)=>v[k]===undefined?'':o[v[k]],many=(k,o)=>(v[k]||[]).map(i=>o[i]).join(' | ');
+ postForm('survey',{survey_type:'full',school:S.svSchool||(S.school==='edhec'?'EDHEC':S.school==='hec'?'HEC Paris':'EDHEC'),program:one('program',SQ.program),time_in_france:one('time',SQ.time),french_level:String(v.french||''),tasks:many('tasks',SQ.tasks),handled_by:many('how',SQ.how),time_spent:one('spent',SQ.spent),knows_service:one('knows',SQ.knows),satisfaction:String(v.sat||''),service_did:many('did',SQ.did),service_solved:one('solved',SQ.solved),service_speed:one('speed',SQ.speed),why_not_used:many('whynot',SQ.whynot),usefulness:String(v.useful||''),payer:one('payer',SQ.payer),max_price:one('price',SQ.price),frustration:(v.frus||'').slice(0,1000),interview_email:(v.mail||'').trim()});
+ log('survey_school',{school:S.svSchool});S.svSent=true;S.svErr='';render(true)}
+
+function miniDone(){const v=SV();return v.knows!==undefined&&(v.knows!==0||v.sat!==undefined)&&v.payer!==undefined}
+function miniSurvey(){const v=SV(),nm=S.school==='hec'?'HEC Paris':S.school==='edhec'?'EDHEC':'your school';
+ return '<div class="card" style="gap:14px;background:var(--paper-2)"><div class="row-btns" style="justify-content:space-between"><h3>2 quick questions first</h3><span class="pill grey">20 seconds · anonymous</span></div>'
+ +'<div class="field"><span class="lbl">1. Do you know '+nm+'’s support service for international students?</span>'+sOne('knows',SQ.knows)+'</div>'
+ +(v.knows===0?'<div class="field"><span class="lbl">How satisfied are you with it?</span>'+sScale('sat','Not at all','Very')+'</div>':'')
+ +'<div class="field"><span class="lbl">2. Who should pay for a service like ours?</span>'+sOne('payer',SQ.payer)+'</div>'
+ +'<p class="tiny">Want to help more? <button class="lnk" data-act="go:survey" style="min-height:0">Take the full 3-minute survey</button></p></div>'}
+function sendMini(){if(S.miniSent)return;S.miniSent=true;const v=SV();
+ postForm('survey',{survey_type:'quick (in request flow)',school:S.school==='hec'?'HEC Paris':S.school==='edhec'?'EDHEC':'Another school',program:'',time_in_france:'',french_level:'',tasks:'',handled_by:'',time_spent:'',knows_service:SQ.knows[v.knows],satisfaction:String(v.sat||''),service_did:'',service_solved:'',service_speed:'',why_not_used:'',usefulness:'',payer:SQ.payer[v.payer],max_price:'',frustration:'',interview_email:''})}
+
+/* ---------- Team stats (hidden page: #stats) ---------- */
+let STATS=null,STATS_ERR='';
+function statsKey(){try{return localStorage.getItem('p1_statskey')||''}catch(_){return ''}}
+function loadStats(k){STATS_ERR='';fetch('/api/stats?k='+encodeURIComponent(k)).then(r=>r.json().then(j=>({ok:r.ok,j}))).then(({ok,j})=>{if(!ok){STATS_ERR='Wrong key.';STATS=null}else{STATS=j;try{localStorage.setItem('p1_statskey',k)}catch(_){}}render()}).catch(()=>{STATS_ERR='Could not load the numbers. Try again.';render()})}
+function bars(obj,total){const e=Object.entries(obj||{}).sort((a,b)=>b[1]-a[1]);if(!e.length)return '<p class="tiny">No data yet.</p>';const mx=Math.max(...e.map(x=>x[1]),1);return '<div class="bars">'+e.map(([k,v])=>'<div><span class="lab"><span>'+esc(k)+'</span><span>'+v+(total?' · '+Math.round(v/total*100)+'%':'')+'</span></span><span class="track"><i style="width:'+Math.round(v/mx*100)+'%"></i></span></div>').join('')+'</div>'}
+function stats(){const k=statsKey();
+ if(!STATS&&k&&!STATS_ERR&&!stats.loading){stats.loading=true;setTimeout(()=>{stats.loading=false;loadStats(k)},0)}
+ const head='<div class="row-btns" style="justify-content:space-between"><div class="stack" style="gap:8px"><span class="eyebrow">Team only</span><h1 style="font-size:clamp(30px,4vw,44px)">Site statistics</h1></div><div class="row-btns"><button class="btn alt sm" data-act="team">'+(TEAM?'This device is excluded ✓':'Exclude my visits on this device')+'</button>'+(STATS?'<button class="btn sm" data-act="statsreload">Refresh</button>':'')+'</div></div>'
+ +'<p class="lead">Anonymous visits recorded from now on, one random ID per visit. Real requests, votes and surveys also appear in Netlify Forms.</p>';
+ if(!STATS)return '<div class="wrap" style="padding-block:40px 72px;max-width:900px"><div class="stack">'+head+'<div class="card" style="max-width:440px"><label class="lbl" for="skey">Team key</label><input id="skey" type="text" value="'+esc(k)+'" autocomplete="off"><p class="err">'+esc(STATS_ERR)+'</p>'+btn('Show the numbers','statsload')+'</div></div></div>';
+ const S0=STATS,v=(S0.funnel[0]||[0,0])[1]||0;
+ return '<div class="wrap" style="padding-block:40px 72px"><div class="stack" style="gap:20px">'+head
+ +'<div class="stats"><div class="stat hl"><span>Visits (unique)</span><strong>'+S0.sessions+'</strong><small>since tracking started</small></div><div class="stat"><span>Sent a real request</span><strong>'+S0.funnel[4][1]+'</strong><small>'+(v?Math.round(S0.funnel[4][1]/v*100):0)+'% of visits</small></div><div class="stat"><span>Visited without any action</span><strong>'+Math.max(0,v-S0.funnel[1][1]-S0.other[0][1]-S0.other[4][1])+'</strong><small>approx., no request, letter or survey</small></div><div class="stat"><span>Updated</span><strong style="font-size:18px">'+new Date(S0.generated).toLocaleString()+'</strong></div></div>'
+ +'<div class="grid2"><div class="card"><h3>Request funnel</h3><p>How far visitors go in “Start a request”.</p>'+bars(Object.fromEntries(S0.funnel),v)+'</div><div class="card"><h3>Other actions</h3>'+bars(Object.fromEntries(S0.other),v)+'</div></div>'
+ +'<div class="grid3"><div class="card"><h3>Soon votes</h3>'+bars(S0.breakdowns.soonVotes)+'</div><div class="card"><h3>Schools chosen</h3>'+bars(S0.breakdowns.school)+'</div><div class="card"><h3>Request topics</h3>'+bars(S0.breakdowns.requestTopic)+'</div>'
+ +'<div class="card"><h3>Device</h3>'+bars(S0.breakdowns.device)+'</div><div class="card"><h3>Language chosen</h3>'+bars(S0.breakdowns.language)+'</div><div class="card"><h3>Tour skipped at step</h3>'+bars(S0.breakdowns.tourSkippedAtStep)+'</div></div>'
+ +'<div class="card"><h3>Visits per day</h3>'+bars(S0.byDay)+'</div></div></div>'}
+
+/* ---------- Help flow ---------- */
+const HSTEPS=[['school','School'],['request','Request'],['match','Your +1'],['track','Follow-up'],['rate','Feedback']];
+function stepper(){const cur=S.step==='ask'?4:HSTEPS.findIndex(x=>x[0]===S.step);return '<div class="stepper" aria-label="Progress">'+HSTEPS.map((x,i)=>'<span class="'+(i<cur?'done':i===cur?'on':'')+'">'+(i+1)+' · '+x[1]+'</span>').join('')+'</div>'}
+const HV={
+school:()=>'<h2>Which school are you at?</h2><p class="lead">Partner schools offer the service to their international students.</p><div role="radiogroup" aria-label="Your school" class="stack" style="gap:8px">'
+ +[['hec','HEC Paris','Partner school · demo'],['edhec','EDHEC Business School','Has its own support service'],['other','Another school in France','Not a partner yet']].map(o=>'<button class="opt" role="radio" aria-checked="'+(S.school===o[0])+'" data-act="school:'+o[0]+'"><span><b>'+o[1]+'</b><small>'+o[2]+'</small></span><span class="radio"></span></button>').join('')+'</div>'
+ +(S.school==='hec'?'<div class="good"><b>Good news: HEC Paris covers your +1.</b>It is free for you. Your school sees how many cases were solved, never the details of your case.</div>':'')
+ +(S.school==='edhec'?'<div class="good"><b>EDHEC already helps its international students.</b>Tell us below how well it works for you.</div>':'')
+ +(S.school==='other'?'<div class="notice"><b>Your school is not a partner yet.</b>Tell us you want it and we will ask your international office. You can still try the demo.</div><div><button class="btn alt" data-act="wish">Tell my school I want this</button></div>':'')
+ +(S.school?miniSurvey():'')
+ +'<div class="row-btns">'+btn(S.school==='hec'?'Continue':'Continue the demo','miniok',{dis:!S.school||!miniDone()})+'</div>'+(S.school&&!miniDone()?'<p class="tiny">Answer the 2 quick questions above to continue.</p>':''),
+request:()=>'<h2>What do you need help with?</h2><div class="chips" role="group" aria-label="Topic">'+CATS.map(c=>'<button class="chip chipi" aria-pressed="'+(S.cat===c.k)+'" data-act="cat:'+c.k+'">'+cico(c.k,1)+'<span>'+c.n+'<small>'+c.ex+'</small></span></button>').join('')+'</div>'
+ +'<div class="field"><label class="lbl" for="desc">Describe the problem in a few words</label><textarea id="desc" rows="4" placeholder="e.g. My health insurance file has had no update for 3 weeks and the English line hangs up.">'+esc(S.desc)+'</textarea></div>'
+ +'<div class="field"><span class="lbl" id="urgl">How urgent is it?</span><div class="chips" role="group" aria-labelledby="urgl">'+URG.map((u,i)=>'<button class="chip" aria-pressed="'+(S.urg===i)+'" data-act="urg:'+i+'">'+u+'</button>').join('')+'</div></div>'
+ +'<div class="card" style="gap:12px;background:var(--paper-2)"><h3>How can we reach you?</h3><p>This site is a student demo, but your request is real: our student team reads it and tries to help, for free and with no guarantee. We usually reply within 2 hours (9am to 9pm).</p>'
+ +'<div class="field"><label class="lbl" for="fname">First name</label><input id="fname" type="text" autocomplete="given-name" value="'+esc(S.fname||'')+'"></div>'
+ +'<div class="field"><span class="lbl" id="cml">Contact me by</span><div class="chips" role="group" aria-labelledby="cml">'+['WhatsApp','Email'].map(x=>'<button class="chip" aria-pressed="'+((S.cm||'WhatsApp')===x)+'" data-act="cm:'+x+'">'+x+'</button>').join('')+'</div></div>'
+ +'<div class="field"><label class="lbl" for="contact">'+((S.cm||'WhatsApp')==='WhatsApp'?'WhatsApp number, with country code':'Email address')+'</label><input id="contact" type="'+((S.cm||'WhatsApp')==='WhatsApp'?'tel':'email')+'" autocomplete="'+((S.cm||'WhatsApp')==='WhatsApp'?'tel':'email')+'" placeholder="'+((S.cm||'WhatsApp')==='WhatsApp'?'+33 6 12 34 56 78':'you@example.com')+'" value="'+esc(S.contact||'')+'" style="width:100%;border:1.5px solid var(--line);border-radius:12px;background:var(--card);padding:12px 14px;font-size:15px"></div></div>'
+ +'<div class="field"><label class="consent"><input id="pref" type="checkbox"'+(S.pref?' checked':'')+'><span>I would prefer a +1 who speaks my language</span></label>'+(S.pref?'<select id="plang" aria-label="Your language" style="max-width:260px">'+PLANGS.map(l=>'<option'+(S.plang===l?' selected':'')+'>'+l+'</option>').join('')+'</select>':'')+'</div>'
+ +'<label class="consent"><input id="consent" type="checkbox"'+(S.consent?' checked':'')+'><span>I allow the team to contact me, and my +1 to contact this institution on my behalf. My request is used only to help me and, anonymously, for an HEC course project. I can withdraw at any time.</span></label>'
+ +'<p class="err" role="alert">'+S.err+'</p><div class="row-btns">'+btn('Send my request','submit')+'</div>',
+match:()=>S.matched
+ ?sentBox()+'<span class="pill warn" style="align-self:flex-start">Preview of the full app · Léa is an example</span><h2>Léa is your +1.</h2><p class="lead">She will text you within 2 hours to confirm the details, then call '+cat().inst+'.</p><div class="card"><div class="profile"><span class="avatar">L</span><div><h3>Léa M.</h3><p>Master in Management student · native French speaker</p></div></div><div class="facts"><span class="pill">14 cases solved</span><span class="pill">Rated 4.8 / 5</span><span class="pill ok">Background checked</span></div></div>'+'<div class="card" style="border-color:var(--wine)"><h3>Why Léa?</h3><p>Picked automatically among the +1s who fit your request. The first suitable +1 to accept takes it.</p><div class="kv"><div><span>Available</span><strong>Now, 1 case in progress</strong></div><div><span>Experience on this topic</span><strong>'+(SOLVED[S.cat]||5)+' '+esc(cat().n.toLowerCase())+' cases solved</strong></div><div><span>Languages</span><strong>French, English, Spanish</strong></div><div><span>Student rating</span><strong>4.8 / 5</strong></div></div>'+(S.pref?(S.plang==='Spanish'?'<div class="good">Léa speaks Spanish: she can write to you in Spanish.</div>':'<div class="notice">No +1 who speaks '+esc(S.plang||'your language')+' is free right now. Léa will write to you in English, and we will tell you when one is available.</div>'):'')+'</div><div class="row-btns">'+btn('Follow my case','step:track')+'</div><button class="demo" data-act="leaside">Demo: see this case from Léa’s side →</button>'
+ :sentBox()+'<h2>Finding your +1…</h2><p class="lead">We match you with a French-speaking student who has already handled '+esc(cat().n.toLowerCase())+' cases.</p><div class="pulse"><div>+1</div></div>',
+track:()=>{const st=S.stage,c=cat();const rows=[['Request received','Today, 10:05'],['Léa is on your case','She texted you at 10:21'],['Call made in French','See the call log below'],['Marked as solved by Léa','Waiting for your confirmation']];
+ return '<div class="row-btns" style="justify-content:space-between"><span class="pill grey">Case HS-0042</span><span class="pill">'+esc(c.n)+'</span></div><h2>Your case</h2>'
+ +'<div class="card"><div class="tl">'+rows.map((r,i)=>'<div class="row'+(i<st?' on':'')+'"><span class="dot"></span><div><b>'+r[0]+'</b><span>'+r[1]+'</span></div></div>').join('')+'</div></div>'
+ +''
+ +(st>=2?'<div class="card"><h3>Prepare for Léa’s call</h3><p>Have these ready so the call takes minutes, not an hour.</p>'+(DOCS[c.k]||DOCS.other).map((t,i)=>{const k=c.k+'-'+i,on=!!S.docs[k];return '<button class="check" aria-pressed="'+on+'" data-act="doc:'+k+'"><span class="bx" aria-hidden="true">'+(on?'✓':'')+'</span><span class="txt">'+esc(t)+'</span></button>'}).join('')+'</div>':'')
+ +(st>=3?'<div class="log"><b style="color:var(--wine)">Call log</b><div class="meta"><span>16 Oct · 08:42</span><span>11 min</span><span>Ref. 4F-2731</span></div><blockquote>'+(S.h.sum?esc(S.h.sum):'<span class="fr">« Le dossier a été relancé, vous aurez une réponse sous cinq jours. »</span><br>The file has been relaunched. You will get an answer within five days.')+'</blockquote></div>':'')
+ +(st>=2?thread('student'):'')
+ +'<button class="demo" data-act="leaside">Demo: see this case from Léa’s side →</button>'+(st<4?'<button class="demo" data-act="advance">Demo: simulate the next update</button>':'<div class="row-btns">'+btn('Yes, it is solved','confirm')+'<button class="btn alt" data-act="reopen">Not yet: reopen my case</button></div>')},
+rate:()=>'<h2>Your case is closed.</h2><p class="lead">How was Léa, your +1?</p><div class="stars" role="radiogroup" aria-label="Rating">'
+ +[1,2,3,4,5].map(n=>'<button class="star'+(n<=S.rating?' on':'')+'" role="radio" aria-checked="'+(S.rating===n)+'" aria-label="'+n+' out of 5" data-act="rate:'+n+'">★</button>').join('')+'</div>'
+ +(S.rating?'<div class="good">Thank you. Ratings help us keep every +1 at the right level. Low ratings are reviewed by our team.</div>':'')
+ +(S.rating>=4?'<div class="card"><h3>Next time, ask for Léa again?</h3><p>For your next request, we offer it to Léa first if she is available.</p><div><button class="btn '+(S.again?'':'alt ')+'sm" aria-pressed="'+!!S.again+'" data-act="again">'+(S.again?'Léa saved as your +1 ✓':'Yes, ask for Léa next time')+'</button></div></div>':'')
+ +(S.hideP?'<button class="lnk" data-act="partners:show" style="align-self:flex-start">Show partner offers</button>'
+  :'<span class="sec-label">Settling in France</span><div class="notice">Partner offers. We earn a fee if you sign up. Partners never change how your +1 handles your case.</div><div class="grid2">'
+  +PARTNERS.map(p=>'<div class="partner"><span class="pill warn" style="align-self:flex-start">Partner offer · '+esc(p.n)+'</span><b>'+esc(p.t)+'</b><p>'+esc(p.d)+'</p><div><button class="btn sm" style="background:var(--ink)" data-act="partner:'+p.k+'">See the offer</button></div></div>').join('')
+  +'</div><button class="lnk" data-act="partners:hide" style="align-self:flex-start">Hide partner offers</button>')
+ +'<div class="row-btns">'+btn('Continue','step:ask',{dis:!S.rating})+'</div>',
+ask:()=>S.sent
+ ?'<h2>Thank you.</h2><p class="lead">That helps us decide what to build next. '+(SHEET_URL?'Your answers were saved anonymously, without your description.':'This is a demo, so nothing was sent anywhere.')+'</p><div class="card"><h3>Know someone stuck with French admin?</h3><p>Share this site with them. Every answer helps us convince schools.</p></div><div class="row-btns">'+btn('Start over','restart')+'</div>'
+ :'<h2>Two last questions.</h2><p class="lead">Imagine your school really offered this service.</p><span class="sec-label" id="q1">How likely are you to use it this year?</span><div role="radiogroup" aria-labelledby="q1" class="stack" style="gap:8px">'
+ +LIKELY.map((t,i)=>'<button class="opt" role="radio" aria-checked="'+(S.ans===i)+'" data-act="ans:'+i+'"><span><b>'+t+'</b></span><span class="radio"></span></button>').join('')+'</div>'
+ +'<span class="sec-label" id="q2">Until now, how did you deal with French admin? Pick any</span><div class="chips" role="group" aria-labelledby="q2">'
+ +BEFORE.map((t,i)=>'<button class="chip" aria-pressed="'+S.before.includes(i)+'" data-act="before:'+i+'">'+t+'</button>').join('')+'</div>'
+ +'<p class="tiny">'+(SHEET_URL?'Saved anonymously. No name, no email, no description.':'Demo: your answers stay on this page.')+'</p><div class="row-btns">'+btn('Send my answers','send',{dis:S.ans===null})+'<button class="lnk" data-act="restart">Skip and start over</button></div>'
+};
+function help(){const back=S.step==='school'?'':'<button class="lnk" data-act="back" style="align-self:flex-start">← Back</button>';
+ return '<div class="wrap work"><div class="stack">'+stepper()+back+HV[S.step]()+'</div>'
+ +'<aside class="stack">'+pic('student','','aspect-ratio:4/3')
+ +'<div class="card"><h3>Your request</h3><div class="kv"><div><span>School</span><strong>'+(S.school==='hec'?'HEC Paris':S.school==='edhec'?'EDHEC':S.school==='other'?'Not a partner yet':'Not chosen')+'</strong></div><div><span>Topic</span><strong>'+(S.cat?esc(cat().n):'Not chosen')+'</strong></div><div><span>Urgency</span><strong>'+URG[S.urg]+'</strong></div>'+(S.pref?'<div><span>Language</span><strong>'+esc(S.plang||'Spanish')+'</strong></div>':'')+'<div><span>Cost for you</span><strong>Free</strong></div></div></div>'
+ +'<div class="card"><h3>Why you can trust it</h3><p>Your +1 calls only with your written consent and never asks for passwords. Every call is logged. Your case closes only when you confirm it is solved.</p></div></aside></div>'}
+
+/* ---------- Letter ---------- */
+const CATMAP={health:'health',caf:'caf',housing:'caf',bank:'bank',phone:'phone',transport:'transport'};
+function daysLeft(iso){if(!iso)return null;const d=new Date(iso+'T23:59:59');if(isNaN(d))return null;return Math.ceil((d-new Date())/86400000)}
+function decodedView(r){const dl=r.days!=null?r.days:daysLeft(r.deadline);
+ return '<div class="stack"><div class="row-btns" style="justify-content:space-between"><span class="pill">'+esc(r.sender||'Letter')+'</span>'+(r.ai?'<span class="pill grey">Explained by AI</span>':'<span class="pill warn">Example letter</span>')+'</div><h2>What this letter means</h2>'
+ +'<div class="card"><h3>What it says</h3><p style="color:var(--ink)">'+esc(r.summary||'')+'</p></div>'
+ +(r.deadline_text||r.deadline?'<div class="deadline"><div><span>Deadline</span><strong>'+esc(r.deadline_text||r.deadline)+'</strong></div>'+(dl!=null?'<div class="left">'+(dl<0?'!':dl)+'<small>'+(dl<0?'deadline passed':'days left')+'</small></div>':'')+'</div>':'<div class="good">No deadline found in this letter.</div>')
+ +(r.actions&&r.actions.length?'<div class="card"><h3>What you need to do</h3><ol class="todo">'+r.actions.map(x=>'<li>'+esc(x)+'</li>').join('')+'</ol></div>':'')
+ +(r.documents&&r.documents.length?'<div class="card"><h3>Documents you will need</h3><ul class="todo">'+r.documents.map(x=>'<li>'+esc(x)+'</li>').join('')+'</ul></div>':'')
+ +(r.risk?'<div class="notice"><b>If you ignore it</b>'+esc(r.risk)+'</div>':'')
+ +(r.glossary&&r.glossary.length?'<div class="card"><h3>French words in this letter</h3><div class="kv">'+r.glossary.map(g=>'<div><span class="fr">'+esc(g.fr)+'</span><span style="text-align:right;max-width:60%">'+esc(g.meaning)+'</span></div>').join('')+'</div></div>':'')
+ +'<div class="row-btns">'+btn('My +1 handles it for me','letterhelp')+'<button class="btn alt" data-act="letterself">I will do it myself</button></div>'
+ +'<p class="tiny">'+(r.ai?'Explained by AI from your letter. It can make mistakes: for anything important, your +1 checks it with the office.':'Explanation of a fictional example letter.')+'</p></div>'}
+function letter(){const L=LETTERS.find(l=>l.k===S.letter),R=S.real||{status:'idle'};
+ const mode=S.lmode||'photo';
+ const own=!ON_NETLIFY&&location.protocol.startsWith('http')?'<div class="card"><h3>Decode my own letter</h3><p>Decoding your own letter with AI is available on our main site only. Try the example letters below.</p></div>':'<div class="card" style="gap:14px"><h3>Decode my own letter</h3>'
+ +'<div class="notice"><b>Before you start</b>Hide or cover your name, address and file numbers. Your letter is read by an AI model to explain it, and is not stored by us.</div>'
+ +'<div class="chips" role="tablist" aria-label="How to send your letter"><button class="chip" role="tab" aria-selected="'+(mode==='photo')+'" aria-pressed="'+(mode==='photo')+'" data-act="lmode:photo">Photo or PDF</button><button class="chip" role="tab" aria-selected="'+(mode==='text')+'" aria-pressed="'+(mode==='text')+'" data-act="lmode:text">Paste the text</button></div>'
+ +(mode==='photo'?'<label class="upload" for="photo"><input id="photo" type="file" accept="image/*,application/pdf"><span class="pill">'+(S.lfile?'Ready':'Photo')+'</span><span>'+(S.lfile?esc(S.lfile.name):'Take a photo or choose a file (JPG, PNG or PDF, up to 4 MB)')+'</span></label>'
+  :'<div class="field"><label class="lbl" for="ltext">Letter text</label><textarea id="ltext" rows="6" placeholder="Paste the French text of your letter here">'+esc(S.ltext||'')+'</textarea></div>')
+ +'<label class="consent"><input id="lconsent" type="checkbox"'+(S.lconsent?' checked':'')+'><span>I removed my personal details, and I agree that my letter is read by an AI model to explain it.</span></label>'
+ +(R.status==='error'?'<p class="err" role="alert">'+esc(R.err)+'</p>':'')
+ +'<div class="row-btns">'+(R.status==='loading'?'<button class="btn" disabled>Reading your letter… about 15 seconds</button>':btn('Decode my letter','decodeReal'))+'</div></div>';
+ const samples='<div class="stack" style="gap:8px"><h3 style="margin-top:12px">No letter with you? Try an example</h3><p class="muted" style="font-size:14px">These three letters are fictional. Pick one to see what the decoder gives you.</p>'
+ +LETTERS.map(l=>'<button class="lt" aria-pressed="'+(S.letter===l.k&&S.lview==='sample')+'" data-act="letter:'+l.k+'"><span><b>'+esc(l.from)+'</b><small>'+esc(l.obj.replace('Objet : ',''))+'</small></span><span class="radio"></span></button>').join('')
+ +(L&&S.lview==='sample'?'<span class="pill warn" style="align-self:flex-start">Example letter</span><div class="paper"><div class="hd"><span>'+esc(L.from)+'</span><span>'+L.date+'</span></div><div class="obj">'+esc(L.obj)+'</div><div>'+esc(L.fr)+'</div></div><div class="row-btns">'+btn('See the explanation','decode')+'</div>':'')+'</div>';
+ const left='<div class="stack"><span class="eyebrow">Letter decoder</span><h2>Decode a French letter</h2><p class="lead">Send a photo of your letter, or paste its text. We tell you what it says, what to do, and the deadline.</p>'+own+samples+'</div>';
+ let right;
+ if(S.lview==='real'&&R.status==='done')right=decodedView(R.result);
+ else if(S.lview==='real'&&R.status==='loading')right='<div class="stack"><div class="card" style="align-items:center;text-align:center"><div class="pulse"><div>+1</div></div><h3>Reading your letter…</h3><p>This takes about 15 seconds.</p></div></div>';
+ else if(S.lview==='sample'&&L&&S.decoded)right=decodedView({sender:L.from,summary:L.says,actions:L.todo,deadline_text:L.deadline,days:L.left,risk:L.risk,ai:false});
+ else right='<div class="stack">'+pic('letter','','aspect-ratio:4/3')+'<div class="card"><h3>What you will get</h3><p>What the letter says in plain words, the deadline with the days left, the steps to follow, the documents you need, and the key French words explained.</p></div></div>';
+ return '<div class="wrap work" style="grid-template-columns:minmax(0,1fr) minmax(0,1fr)"><div>'+left+'</div><div id="lresult">'+right+'</div></div>'}
+function fileToPayload(f){return new Promise((res,rej)=>{
+ if(f.type==='application/pdf'){if(f.size>4*1024*1024)return rej('This PDF is larger than 4 MB. Send a photo of the page instead.');const fr=new FileReader();fr.onload=()=>res({pdf:{data:String(fr.result).split(',')[1]}});fr.onerror=()=>rej('Could not read this file.');fr.readAsDataURL(f);return}
+ if(!f.type.startsWith('image/'))return rej('Choose a photo (JPG, PNG) or a PDF.');
+ const url=URL.createObjectURL(f),img=new Image();
+ img.onload=()=>{const max=2000,k=Math.min(1,max/Math.max(img.width,img.height)),c=document.createElement('canvas');c.width=Math.round(img.width*k);c.height=Math.round(img.height*k);c.getContext('2d').drawImage(img,0,0,c.width,c.height);URL.revokeObjectURL(url);res({image:{media_type:'image/jpeg',data:c.toDataURL('image/jpeg',0.85).split(',')[1]}})};
+ img.onerror=()=>{URL.revokeObjectURL(url);rej('Could not open this image. Try a JPG or PNG photo.')};img.src=url})}
+async function decodeReal(){const mode=S.lmode||'photo';
+ if(!S.lconsent){S.real={status:'error',err:'Tick the box to confirm you removed your personal details.'};render();return}
+ let payload;
+ try{if(mode==='photo'){if(!S.lfile)throw 'Choose a photo or a PDF of your letter first.';payload=await fileToPayload(S.lfile)}else{if(!S.ltext||S.ltext.trim().length<20)throw 'Paste the text of your letter first.';payload={text:S.ltext}}}
+ catch(m){S.real={status:'error',err:String(m)};render();return}
+ payload.lang=LANG;S.real={status:'loading'};S.lview='real';render();
+ if(innerWidth<860)setTimeout(()=>{const r=$('#lresult');if(r)r.scrollIntoView({behavior:'smooth'})},50);
+ try{const r=await fetch('/api/decode',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(payload)});
+  const j=await r.json().catch(()=>({error:'failed'}));
+  if(r.status===429)throw 'Too many letters in a short time. Wait a minute and try again.';
+  if(r.status===413)throw 'This file is too large. Send a photo of the page instead.';
+  if(r.status===503)throw 'The decoder is not switched on yet. Try a sample letter for now.';
+  if(!r.ok||j.error)throw 'We could not read this letter. Try a clearer photo, or paste the text.';
+  if(j.is_letter===false)throw 'This does not look like an official letter, or it is hard to read. Try a clearer photo.';
+  j.ai=true;S.real={status:'done',result:j};S.lcat=CATMAP[j.category]||'other';
+  log('letter_ai',{source:mode==='photo'?(payload.pdf?'pdf':'photo'):'text',ok:true,category:j.category,urgency:j.urgency,lang:LANG})}
+ catch(m){S.real={status:'error',err:typeof m==='string'?m:'We could not reach the decoder. Check your connection and try again.'};S.lview=null;log('letter_ai',{ok:false})}
+ render();if(innerWidth<860)setTimeout(()=>{const r=$('#lresult');if(r)r.scrollIntoView({behavior:'smooth'})},50)}
+
+/* ---------- Schools ---------- */
+function schools(){return '<div class="wrap"><div class="hero"><div class="stack" style="gap:18px"><span class="eyebrow">For international offices</span><h1>Support every international student. <span>Without adding staff.</span></h1><p class="lead">Admin questions in French take your team about 45 minutes each. Our trained French-speaking students handle them by phone, log every call, and close a case only when the student confirms it is solved.</p><div class="row-btns"><a class="btn" href="#pilot">Request a pilot<span aria-hidden="true">→</span></a><a class="btn alt" href="#plans">See prices</a></div></div>'+pic('school','hero-photo','aspect-ratio:4/3')+'</div></div>'
+ +'<section style="background:var(--paper-2)"><div class="wrap"><div class="sec-head"><span class="eyebrow">What you pay for</span><h2>Outcomes you can show your director</h2></div><div class="grid3">'
+ +[['Fewer requests at your desk','Health insurance, housing aid, bank and phone problems go to a +1, not to your team.'],['Proof of every case','Each call is logged with date, reference and outcome. Random audits check quality.'],['A report each semester','Cases solved, time saved, satisfaction and rising topics, on one page.']].map(x=>'<div class="card"><h3>'+x[0]+'</h3><p>'+x[1]+'</p></div>').join('')+'</div></div></section>'
+ +pilotSection(true)
+ +'<section><div class="wrap"><div class="sec-head"><span class="eyebrow">Your dashboard</span><h2>What your students got solved</h2><span class="pill warn" style="align-self:flex-start">Example data for the demo</span></div><div class="dash">'
+ +'<div class="alert"><span class="pill" style="align-self:flex-start">Trending this month</span><b>Housing aid requests tripled in October</b><span class="muted">12 cases against 4 in September. Most are a missing rent certificate. Idea: remind students in residences before 31 October.</span></div>'
+ +'<div class="stats"><div class="stat"><span>Requests</span><strong>52</strong><small>from 38 students</small></div><div class="stat"><span>Solved</span><strong>88%</strong><small>confirmed by the student</small></div><div class="stat"><span>Median time</span><strong>2.5 days</strong><small>first contact under 2 h</small></div><div class="stat hl"><span>Cases used</span><strong>46 of 100</strong><div class="meter"><i style="width:46%"></i></div></div></div>'
+ +'<div class="grid2"><div class="card"><h3>Requests by topic</h3><div class="bars">'+[['Health insurance',17],['Housing aid',12],['Bank',9],['Phone and internet',6],['Transport card',5],['Other',3]].map(r=>'<div><span class="lab"><span>'+r[0]+'</span><span>'+r[1]+'</span></span><span class="track"><i style="width:'+Math.round(r[1]/17*100)+'%"></i></span></div>').join('')+'</div></div>'
+ +'<div class="card"><h3>Quality</h3><div class="kv"><div><span>Cases with a full call log</span><strong>100%</strong></div><div><span>Closed by the student</span><strong>88%</strong></div><div><span>Reopened by the student</span><strong>3</strong></div><div><span>Random audits passed</span><strong>5 of 5</strong></div><div><span>Satisfaction</span><strong>4.6 / 5</strong></div><div><span>Staff time saved</span><strong>≈ 35 hours</strong></div></div></div></div>'
+ +'<div class="card"><h3>Latest cases</h3><p>Anonymised. You never see what a student wrote.</p><div class="scroll"><table class="cases"><thead><tr><th>Case</th><th>Topic</th><th>Opened</th><th>Status</th><th>Calls logged</th><th>Rating</th></tr></thead><tbody>'
+ +[['HS-0046','Bank','18 Oct','In progress','grey','1','–'],['HS-0045','Phone and internet','17 Oct','Waiting for student','warn','2','–'],['HS-0042','Health insurance','15 Oct','Solved','ok','2','5 / 5'],['HS-0040','Housing aid','13 Oct','Solved','ok','3','4 / 5'],['HS-0038','Transport card','12 Oct','Reopened','','2','–']].map(r=>'<tr><td>'+r[0]+'</td><td>'+r[1]+'</td><td>'+r[2]+'</td><td><span class="pill '+r[4]+'">'+r[3]+'</span></td><td>'+r[5]+'</td><td>'+r[6]+'</td></tr>').join('')
+ +'</tbody></table></div></div><div><button class="btn alt" data-act="report">Preview the semester report<span aria-hidden="true">→</span></button></div></div></div></section>'
+ +'<section id="plans" style="background:var(--paper-2)"><div class="wrap"><div class="sec-head"><span class="eyebrow">Plans</span><h2>Priced per student covered, with a quota of cases</h2><p class="lead">Extra cases beyond your quota: €18 each. Prices are proposals for the pilot phase.</p></div><div class="plans">'
+ +PLANS.map(p=>'<div class="plan'+(p.feat?' feat':'')+'">'+(p.feat?'<span class="pill" style="align-self:flex-start">Start here</span>':'')+'<h3>'+p.n+'</h3><div class="price">'+p.price+'</div><div class="per">'+p.per+'</div><ul>'+p.items.map(i=>'<li>'+i+'</li>').join('')+'</ul><button class="btn'+(p.feat?'':' alt')+' block" data-act="plan:'+p.n+'">'+p.cta+'<span aria-hidden="true">→</span></button></div>').join('')+'</div></div></section>'
+ +'<section id="pilot"><div class="wrap grid2" style="align-items:start"><div class="stack"><span class="eyebrow">Request a pilot</span><h2>Try it for one semester</h2><p class="lead">100 resolved cases for €1,500. At the end, you get the report and decide.</p></div>'
+ +(S.pilot?'<div class="good"><b>Thank you.</b>In the real service, we would contact you within two working days. This demo does not send anything.</div>'
+ :'<div class="card"><div class="field"><label class="lbl" for="pSchool">School</label><input id="pSchool" type="text" placeholder="e.g. Business school, Paris region"></div><div class="field"><label class="lbl" for="pRole">Your role</label><select id="pRole"><option>International office</option><option>Student life</option><option>Direction</option><option>Other</option></select></div><div class="field"><label class="lbl" for="pSize">International students</label><select id="pSize"><option>Fewer than 300</option><option>300 to 1,000</option><option>More than 1,000</option></select></div>'+btn('Request a pilot','pilot')+'</div>')
+ +'</div></section>'}
+
+/* ---------- Become a +1 ---------- */
+function become(){return '<div class="wrap"><div class="hero"><div class="stack" style="gap:18px"><span class="eyebrow">Become a +1</span><h1>Speak French? <span>Help a student, get paid.</span></h1><p class="lead">You call institutions in French for international students, from your phone, when it suits you. You are paid for every case the student confirms as solved.</p><div class="row-btns"><a class="btn" href="#apply">Apply<span aria-hidden="true">→</span></a><a class="btn alt" href="#helper" data-nav="helper">See the helper space</a></div></div>'+pic('helper','hero-photo','aspect-ratio:4/3')+'</div></div>'
+ +'<section style="background:var(--paper-2)"><div class="wrap"><div class="grid4">'
+ +[['€10 per solved case','Paid when the student confirms. +€2 if confirmed within 48 h.'],['Your own hours','Pick the missions you want, between classes.'],['Playbooks for each office','What to say to the CAF, the CPAM, banks and operators.'],['Quality checked','Call logs, student ratings and random audits.']].map(x=>'<div class="card"><h3>'+x[0]+'</h3><p>'+x[1]+'</p></div>').join('')+'</div></div></section>'
+ +'<section><div class="wrap"><div class="sec-head"><span class="eyebrow">New +1s welcome</span><h2>Your first missions, without the pressure</h2><p class="lead">You do not need experience to start. Matching protects students on urgent cases and keeps work for new +1s on simpler ones.</p></div><div class="grid4">'
+ +[['Simple cases first','Requests marked “No rush” and simple questions go to new +1s first. Urgent and complex cases go to experienced +1s.'],['1 mission in 4 for you','Until your first 5 missions, one in four missions is reserved for new +1s.'],['A mentor for your first 3','An experienced +1 reviews your first three call logs before they reach the student, or calls with you.'],['A fair start on ratings','Your rating counts only after 5 missions. Until then you start from a neutral score.']].map((x,i)=>'<div class="tstep"><span class="n">'+(i+1)+'</span><h3>'+x[0]+'</h3><p>'+x[1]+'</p></div>').join('')+'</div></div></section>'
+ +'<section id="apply"><div class="wrap grid2" style="align-items:start"><div class="stack"><span class="eyebrow">Apply</span><h2>Join the first +1s</h2><p class="lead">We start with a small group of students and train you on the first calls.</p></div>'
+ +(S.applied?'<div class="good"><b>Thank you for applying.</b>This is a demo, so nothing was sent. In the real service, we would invite you to a 20-minute training.</div>'
+ :'<div class="card"><div class="field"><label class="lbl" for="aFr">Your French</label><select id="aFr"><option>Native speaker</option><option>Fluent (C1 or C2)</option><option>Good (B2)</option></select></div><div class="field"><label class="lbl" for="aHours">Hours per week</label><select id="aHours"><option>1 to 2 hours</option><option>3 to 5 hours</option><option>More than 5 hours</option></select></div>'+btn('Apply as a +1','apply')+'</div>')+'</div></section>'}
+
+/* ---------- Helper space ---------- */
+function myMission(){return S.caseSent?{id:'HS-0042',cat:cat().n,urg:URG[S.urg],desc:S.desc&&S.desc.trim()?S.desc:'No description given by the student.',lang:S.pref?S.plang:null,mine:true}:null}
+function helper(){const mine=myMission(),ALL=(mine?[mine]:[]).concat(MISSIONS),H=S.h;
+ const myDone=mine&&(S.step==='rate'||S.step==='ask');
+ const done=Object.keys(H.done).length+(myDone?1:0);
+ const open=ALL.filter(m=>m.mine?!myDone:!H.done[m.id]);
+ const m=ALL.find(x=>x.id===H.cur)||null;
+ const list='<div class="stack"><div class="row-btns" style="justify-content:space-between"><h2>Léa’s space</h2><span class="pill grey">Demo · seen by Léa, the +1</span></div>'
+ +(mine?'<div class="notice" style="background:var(--wine-soft);border-color:var(--line);color:var(--ink)"><b style="color:var(--wine)">Your demo request is here</b>The case you just sent as a student appears at the top of Léa’s missions. Open it to play Léa’s role.</div>':'<div class="notice" style="background:var(--wine-soft);border-color:var(--line);color:var(--ink)"><b style="color:var(--wine)">Tip</b>Send a request as a student first: it will appear here, and you can follow it from both sides.</div>')
+ +'<div class="stats" style="grid-template-columns:1fr 1fr"><div class="stat"><span>Solved this month</span><strong>'+(11+done)+'</strong></div><div class="stat"><span>Earned this month</span><strong>€'+((11+done)*10)+'</strong></div></div><span class="sec-label">Open missions</span>'
+ +(open.length?open.map(x=>'<button class="mission" aria-current="'+(H.cur===x.id)+'" data-act="h:open:'+x.id+'"'+(x.mine?' style="border-color:var(--wine);background:var(--wine-soft)"':'')+'><span class="top"><span>'+x.id+(x.mine?' · from your demo request':'')+'</span><span class="pill'+(x.urg==='Today'?'':' grey')+'">'+x.urg+'</span></span><b>'+esc(x.cat)+'</b><p>'+esc(x.desc)+'</p>'+(x.lang?'<span class="pill" style="align-self:flex-start">Student prefers '+esc(x.lang)+'</span>':'')+'<span class="pay">€10 when the student confirms it is solved</span></button>').join('')
+  :'<div class="good"><b>No open missions.</b>All cases are solved and confirmed. New requests appear here.</div>')
+ +'<p class="tiny">You are paid per case the student confirms as solved. Call logs are checked at random.</p></div>';
+ let detail;
+ if(!m)detail='<div class="card"><h3>Open a mission</h3><p>Pick a mission on the left to see the call playbook and write the call log.</p></div>';
+ else{const accepted=m.mine?S.stage>=2:true,logged=m.mine?S.stage>=4:H.logged[m.id],finished=m.mine?myDone:H.done[m.id];
+  detail='<div class="stack"><div class="row-btns" style="justify-content:space-between"><span class="pill grey">'+m.id+'</span><span class="pill">'+m.urg+'</span></div><h2>'+esc(m.cat)+'</h2><div class="card"><p style="color:var(--ink)">'+esc(m.desc)+'</p><p>Consent signed'+(m.lang?' · prefers '+esc(m.lang):'')+'</p></div>';
+  if(finished)detail+='<div class="good"><b>The student confirmed: case solved.</b>€10 released to Léa. Well done.</div>';
+  else if(!accepted)detail+='<div class="card"><h3>New mission for you</h3><p>You were picked because you are available and you know this topic. Accept within 15 minutes, or it goes to the next +1.</p><div class="row-btns">'+btn('Accept the mission','h:accept')+'</div></div>';
+  else{if(m.mine)detail+=thread('lea');detail+='<span class="sec-label">Call playbook</span>'+PLAY.map((t,j)=>{const on=!!H.checks[m.id+'-'+j];return '<button class="check" aria-pressed="'+on+'" data-act="h:check:'+j+'"><span class="bx" aria-hidden="true">'+(on?'✓':'')+'</span><span class="txt">'+esc(t)+'</span></button>'}).join('')
+   +'<span class="sec-label">Call log</span><div class="grid2"><div class="field"><label class="lbl" for="hwhen">Date and time</label><input id="hwhen" type="text" value="16 Oct, 08:42"></div><div class="field"><label class="lbl" for="href">Reference</label><input id="href" type="text" value="4F-2731"></div></div>'
+   +'<div class="field"><label class="lbl" for="hsum">Summary for the student, in English</label><textarea id="hsum" rows="3">'+esc(H.sum||'File relaunched. Answer promised within five days.')+'</textarea></div>'
+   +(logged?'<div class="log"><b style="color:var(--wine)">Waiting for the student</b>The log was shared. Your €10 is released when the student confirms the problem is solved.</div>'+(m.mine?'':'<button class="demo" data-act="h:confirm">Demo: the student confirms</button>'):'<div class="row-btns">'+btn('Save the log and mark as solved','h:log')+'</div>')}
+  if(m.mine)detail+='<button class="demo" data-act="h:student">See it from the student’s side →</button>';
+  detail+='</div>'}
+ return '<div class="wrap work" style="grid-template-columns:minmax(0,1fr) minmax(0,1.3fr)">'+list+detail+'</div>'}
+
+const P={home,help,letter,schools,become,helper,survey,stats};
+function render(reset){const y=scrollY;$('#main').innerHTML=P[S.page]();document.querySelectorAll('.bubbles').forEach(b=>b.scrollTop=b.scrollHeight);
+ document.querySelectorAll('nav a').forEach(a=>a.setAttribute('aria-current',a.dataset.nav===S.page?'page':'false'));
+ if(reset)scrollTo(0,0);else scrollTo(0,y)}
+function setPage(p,noHash){if(!PAGES.includes(p))p='home';const changed=S.page!==p;S.page=p;closeMenu();if(!noHash&&location.hash!=='#'+p)history.replaceState(null,'','#'+p);log('page',{page:p});render(changed)}
+function step(s){S.step=s;S.err='';log('step',{step:s});render(true);
+ if(s==='match'&&!S.matched){setTimeout(()=>{S.matched=true;if(S.page==='help'&&S.step==='match'){render();toast('Léa accepted your case')}},2000)}}
+function toast(m){const t=$('#toast');t.textContent=m;t.classList.add('show');clearTimeout(toast.t);toast.t=setTimeout(()=>t.classList.remove('show'),2600)}
+function modal(html){$('#modal').innerHTML=html?'<div class="modal" data-act="close"><div data-stop role="dialog" aria-modal="true">'+html+'</div></div>':''}
+function closeMenu(){$('#nav').classList.remove('open');$('#menuBtn').setAttribute('aria-expanded','false')}
+const BACK={request:'school',match:'request',track:'match',rate:'track',ask:'rate'};
+
+$('#menuBtn').addEventListener('click',()=>{const o=$('#nav').classList.toggle('open');$('#menuBtn').setAttribute('aria-expanded',o)});
+window.addEventListener('hashchange',()=>{const h=location.hash.slice(1);if(h==='edhec'||h==='hec'){S.svSchool=h==='edhec'?'EDHEC':'HEC Paris';setPage('survey');return}if(h==='tour'){history.replaceState(null,'','#home');tour(0);return}if(PAGES.includes(h)&&h!==S.page)setPage(h,true)});
+document.addEventListener('input',e=>{if(e.target.id==='desc')S.desc=e.target.value;if(e.target.id==='svFrus')SV().frus=e.target.value;if(e.target.id==='svMail')SV().mail=e.target.value;if(e.target.id==='fname')S.fname=e.target.value;if(e.target.id==='contact')S.contact=e.target.value;if(e.target.id==='smsg'||e.target.id==='hmsg'){S.draft=S.draft||{};S.draft[e.target.id==='smsg'?'student':'lea']=e.target.value}if(e.target.id==='ltext')S.ltext=e.target.value;if(e.target.id==='q'){S.q=e.target.value;$('#sugg').innerHTML=suggHtml(S.q)}});
+document.addEventListener('submit',e=>{if(e.target.classList.contains('composer')){e.preventDefault();const r=e.target.dataset.role,ta=e.target.querySelector('textarea');sendMsg(r,ta.value);return}
+ if(e.target.id==='sform'){e.preventDefault();const m=matches(S.q||'');if((S.q||'').trim().length<2){$('#q').focus();return}if(m.letter&&!m.cats.length){log('search_pick',{cat:'letter',lang:LANG});setPage('letter')}else{const k=m.cats[0]||'other';S.cat=k;S.desc=S.q;S.from=null;S.step='school';log('search_pick',{cat:k,queryLength:S.q.length,lang:LANG});setPage('help')}}});
+document.addEventListener('change',e=>{if(e.target.id==='consent')S.consent=e.target.checked;if(e.target.id==='svSchool')S.svSchool=e.target.value;
+ if(e.target.id==='pref'){S.pref=e.target.checked;if(S.pref&&!S.plang)S.plang='Spanish';log('lang_pref',{on:S.pref});render()}
+ if(e.target.id==='plang'){S.plang=e.target.value;log('lang_pref',{lang:S.plang});render()}
+ if(e.target.id==='lang'){LANG=e.target.value;try{localStorage.setItem('p1_lang',LANG)}catch(_){}log('language',{lang:LANG});applyLang();render();if(tourI>=0)tour(tourI)}
+ if(e.target.id==='photo'){S.lfile=e.target.files[0]||null;log('letter_file_chosen');render()}
+ if(e.target.id==='lconsent')S.lconsent=e.target.checked});
+document.addEventListener('click',e=>{
+ const nav=e.target.closest('[data-nav]');if(nav){e.preventDefault();setPage(nav.dataset.nav);return}
+ const el=e.target.closest('[data-act]');if(!el)return;if(el.classList.contains('modal')&&e.target.closest('[data-stop]'))return;
+ const [a,x,y]=el.dataset.act.split(':');
+ if(a==='go'){if(x==='help'){S.from=null}setPage(x)}
+ else if(a==='startcat'){S.cat=x;S.from=null;S.step='school';log('start_category',{cat:x});setPage('help')}
+ else if(a==='step')step(x);
+ else if(a==='back'){if(S.step==='request'&&S.from==='letter'){setPage('letter')}else step(BACK[S.step]||'school')}
+ else if(a==='school'){S.school=x;log('school',{school:x});render()}
+ else if(a==='wish'){log('school_wish');toast('Noted. We will contact your international office.')}
+ else if(a==='cat'){S.cat=x;S.err='';log('category',{cat:x});render()}
+ else if(a==='urg'){S.urg=+x;render()}
+ else if(a==='submit'){const cm=S.cm||'WhatsApp',ct=(S.contact||'').trim();
+   if(!S.cat){S.err='Choose what you need help with: pick one of the topics at the top.';render();toast('Pick a topic first');const c=$('.chips');if(c)c.scrollIntoView({behavior:'smooth',block:'center'})}
+   else if(cm==='WhatsApp'?ct.replace(/[^0-9]/g,'').length<8:!/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(ct)){S.err=cm==='WhatsApp'?'Enter your WhatsApp number with the country code, so we can reach you.':'Enter a valid email address, so we can reach you.';render();toast('Add how we can reach you');const c=$('#contact');if(c){c.scrollIntoView({behavior:'smooth',block:'center'});c.focus({preventScroll:true})}}
+   else if(!S.consent){S.err='Tick the consent box so we can help you.';render();toast('Tick the consent box first')}
+   else{sendRequest();log('request_sent',{cat:S.cat,urgency:URG[S.urg],langPref:S.pref?S.plang:null,descLength:S.desc.trim().length,from:S.from||'direct',contact:cm});S.matched=false;S.stage=1;S.caseSent=true;S.h.cur=null;step('match')}}
+ else if(a==='leaside'){S.h.cur='HS-0042';S.leaSeen=true;log('see_helper_side',{step:S.step});setPage('helper')}
+ else if(a==='cm'){S.cm=x;S.contact='';render()}
+ else if(a==='miniok'){if(miniDone()){sendMini();step('request')}}
+ else if(a==='sv'){SV()[x]=+y;S.svErr='';render()}
+ else if(a==='svs'){SV()[x]=+y;S.svErr='';render()}
+ else if(a==='svm'){S.svErr='';const l=SV()[x]||(SV()[x]=[]),i=+y,p=l.indexOf(i);if(p<0)l.push(i);else l.splice(p,1);render()}
+ else if(a==='svsend'){sendSurvey()}
+ else if(a==='statsload'){loadStats(($('#skey').value||'').trim())}
+ else if(a==='statsreload'){loadStats(statsKey())}
+ else if(a==='team'){TEAM=!TEAM;try{TEAM?localStorage.setItem('p1_team','1'):localStorage.removeItem('p1_team')}catch(_){}render();toast(TEAM?'Your visits on this device are no longer counted':'Your visits are counted again')}
+ else if(a==='quick'){sendMsg(x,QUICK[x][+y])}
+ else if(a==='advance'){S.stage=Math.min(4,S.stage+1);log('demo_advance',{stage:S.stage});render()}
+ else if(a==='doc'){S.docs[x]=!S.docs[x];log('doc_check',{n:Object.values(S.docs).filter(Boolean).length});render()}
+ else if(a==='confirm'){log('case_confirmed');S.rating=0;step('rate')}
+ else if(a==='reopen'){log('case_reopened');S.stage=2;render();toast('Case reopened. Léa has been told.')}
+ else if(a==='again'){S.again=!S.again;log('ask_same_helper',{on:S.again});render()}
+ else if(a==='rate'){S.rating=+x;log('rating',{rating:S.rating});render()}
+ else if(a==='partner'){log('partner_click',{offer:x});toast('Demo: this would open the partner’s site')}
+ else if(a==='partners'){S.hideP=(x==='hide');log('partners_'+x);render()}
+ else if(a==='ans'){S.ans=+x;render()}
+ else if(a==='before'){const i=+x,p=S.before.indexOf(i);if(p<0)S.before.push(i);else S.before.splice(p,1);render()}
+ else if(a==='send'){S.sent=true;postForm('feedback',{kind:'survey',feature:'',vote:'',email:'',likely:LIKELY[S.ans],before:S.before.map(i=>BEFORE[i]).join(' | '),rating:String(S.rating||''),school:S.school||''});log('survey',{likelyToUse:LIKELY[S.ans],likelyScore:5-S.ans,before:S.before.map(i=>BEFORE[i]),rating:S.rating,school:S.school});render(true)}
+ else if(a==='restart'){log('restart');Object.assign(S,{step:'school',school:null,cat:null,desc:'',urg:1,consent:true,err:'',stage:1,rating:0,ans:null,before:[],sent:false,matched:false,from:null,docs:{},hideP:false,caseSent:false,sendState:null,msgs:[],draft:{},leaSeen:false});setPage('home')}
+ else if(a==='letter'){S.letter=x;S.decoded=false;S.lview='sample';log('letter_pick',{letter:x});render()}
+ else if(a==='decode'){S.decoded=true;S.lview='sample';log('letter_decoded',{letter:S.letter});render();if(innerWidth<860)setTimeout(()=>{const h=$('#lresult');if(h)h.scrollIntoView({behavior:'smooth'})},50)}
+ else if(a==='lmode'){S.lmode=x;render()}
+ else if(a==='decodeReal'){decodeReal()}
+ else if(a==='letterhelp'){if(S.lview==='real'&&S.real&&S.real.result){const r=S.real.result;S.cat=S.lcat||'other';S.desc='Letter from '+(r.sender||'an office')+': '+(r.summary||'');log('letter_choice',{letter:'own',choice:'plus_one'})}else{const L=LETTERS.find(l=>l.k===S.letter);S.cat=L.cat;S.desc='Letter from '+L.from+': '+L.says;log('letter_choice',{letter:L.k,choice:'plus_one'})}S.from='letter';S.step='request';setPage('help')}
+ else if(a==='letterself'){log('letter_choice',{letter:S.letter,choice:'self'});toast('Good luck! Your +1 is here if you get stuck.')}
+ else if(a==='soon'){const i=SOON.findIndex(s=>s.k===x),f=t('soon')[i];log('soon_open',{feature:x});S.soonK=x;modal('<span class="soon" style="align-self:flex-start">'+t('sooneb')+'</span><h2>'+f[0]+'</h2><p class="lead">'+f[1]+'</p><p class="lead">'+t('soonq')+'</p>'+btn(t('yes'),'soonvote:yes',{cls:'block'})+'<button class="btn alt block" data-act="soonvote:no">'+t('no')+'</button>')}
+ else if(a==='soonvote'){const i=SOON.findIndex(q=>q.k===S.soonK),f=t('soon')[i];
+   if(x==='no'){log('soon_vote',{feature:S.soonK,vote:'no'});postForm('feedback',{kind:'soon_vote',feature:SOON[i].t,vote:'no',email:'',likely:'',before:'',rating:'',school:''});modal('');toast('Thanks, noted.')}
+   else modal('<span class="soon" style="align-self:flex-start">'+t('sooneb')+'</span><h2>'+f[0]+'</h2><p class="lead">Great. Want us to tell you when it is ready? Leave your email: we write to you once, at launch, and never share it.</p><div class="field"><label class="lbl" for="wl">Email (optional)</label><input id="wl" type="email" autocomplete="email" placeholder="you@example.com" style="width:100%;border:1.5px solid var(--line);border-radius:12px;background:var(--card);padding:12px 14px;font-size:15px"></div><p class="err" id="wlerr" role="alert"></p>'+btn('Notify me at launch','waitlist:email',{cls:'block'})+'<button class="btn alt block" data-act="waitlist:skip">Skip, just count my vote</button>')}
+ else if(a==='waitlist'){const i=SOON.findIndex(q=>q.k===S.soonK),em=x==='email'?($('#wl').value||'').trim():'';
+   if(x==='email'&&!/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(em)){$('#wlerr').textContent='Enter a valid email, or tap “Skip, just count my vote”.';return}
+   log('soon_vote',{feature:S.soonK,vote:'yes',waitlist:!!em});postForm('feedback',{kind:'soon_vote',feature:SOON[i].t,vote:'yes',email:em,likely:'',before:'',rating:'',school:''});modal('');toast(em?'You are on the list. Thanks!':'Vote counted. Thanks!')}
+ else if(a==='report'){log('school_report');modal('<span class="pill warn" style="align-self:flex-start">Example data</span><h2>Fall semester report</h2><p class="lead">One page for your director, sent at the end of each semester.</p><div class="kv"><div><span>Students helped</span><strong>38</strong></div><div><span>Cases solved and confirmed</span><strong>46</strong></div><div><span>Staff time saved</span><strong>≈ 35 h</strong></div><div><span>Main topic</span><strong>Health insurance</strong></div><div><span>Satisfaction</span><strong>4.6 / 5</strong></div></div><p class="lead">Recommendation: add a housing aid session to the welcome week.</p>'+btn('Close','close',{cls:'block'}))}
+ else if(a==='close'){modal('')}
+ else if(a==='tour'){log('tour_open');scrollTo(0,0);tour(0)}
+ else if(a==='tourgo'){tour(+x)}
+ else if(a==='tourskip'){log('tour_skipped',{at:tourI+1});tourDone()}
+ else if(a==='tourend'){log('tour_completed',{next:x});tourDone();if(x==='help')setPage('help')}
+ else if(a==='pick'){S.cat=x;S.desc=S.q||'';S.from=null;S.step='school';log('search_pick',{cat:x,queryLength:(S.q||'').length,lang:LANG});setPage('help')}
+ else if(a==='wa'){log('whatsapp_click',{page:S.page,lang:LANG});if(WHATSAPP){const w=window.open('https://wa.me/'+WHATSAPP+'?text='+encodeURIComponent('Hi! I have a question about Your +1 in France.'),'_blank');if(!w)toast('Open WhatsApp and text the team')}else modal('<h2>'+t('wa')+'</h2><p class="lead">In the real service, this opens a WhatsApp chat with the team. Demo: no message is sent.</p>'+btn('OK','close',{cls:'block'}))}
+ else if(a==='plan'){log('plan_click',{plan:x});document.getElementById('pilot').scrollIntoView({behavior:'smooth'})}
+ else if(a==='pilot'){S.pilot=true;log('pilot_request',{role:$('#pRole').value,size:$('#pSize').value});render();toast('Pilot request noted (demo)')}
+ else if(a==='apply'){S.applied=true;log('helper_apply',{french:$('#aFr').value,hours:$('#aHours').value});render();toast('Application noted (demo)')}
+ else if(a==='h'){const h=S.h,id=y;
+   if(x==='open'){h.cur=id;log('helper_open',{mission:id});render();if(innerWidth<860)setTimeout(()=>{const t=document.querySelectorAll('.work h2')[1];if(t)t.scrollIntoView({behavior:'smooth'})},50)}
+   else if(x==='check'){const k=h.cur+'-'+y;h.checks[k]=!h.checks[k];render()}
+   else if(x==='accept'){S.stage=Math.max(S.stage,2);log('helper_accept');render();toast('Mission accepted. The student sees that Léa is on the case.')}
+   else if(x==='log'){const t=$('#hsum');if(t)h.sum=t.value;if(h.cur==='HS-0042'&&S.caseSent){S.stage=4;if(!S.msgs)S.msgs=[];if(!S.msgs.some(x=>x.k==='done'))S.msgs.push({from:'lea',k:'done',t:now(),text:'I called '+cat().inst+'. '+(h.sum||'')+' Can you check on your side and confirm it is solved?'})}else h.logged[h.cur]=true;log('helper_log');render();toast('Log shared with the student')}
+   else if(x==='confirm'){h.done[h.cur]=true;h.cur=null;log('helper_paid');render();toast('Student confirmed · €10 released')}
+   else if(x==='student'){S.step=(S.step==='match'&&!S.matched)?'match':(S.step==='rate'||S.step==='ask'?S.step:'track');S.matched=true;setPage('help')}}
+});
+document.addEventListener('keydown',e=>{if(e.key==='Enter'&&!e.shiftKey&&(e.target.id==='smsg'||e.target.id==='hmsg')){e.preventDefault();e.target.form.requestSubmit();return}
+ if(e.key==='Escape'){if(tourI>=0){log('tour_skipped',{at:tourI+1});tourDone()}else modal('')}});
+if(location.hash==='#team'){TEAM=true;try{localStorage.setItem('p1_team','1')}catch(_){}history.replaceState(null,'','#home');setTimeout(()=>toast('Team mode: your visits on this device are no longer counted'),800)}
+log('session_start',{viewport:innerWidth<=520?'mobile':'desktop'});
+applyLang();
+if(location.hash==='#edhec'||location.hash==='#hec'){S.svSchool=location.hash==='#edhec'?'EDHEC':'HEC Paris';history.replaceState(null,'','#survey')}
+setPage(PAGES.includes(location.hash.slice(1))?location.hash.slice(1):'home',true);
+let seen=false;try{seen=localStorage.getItem('p1_tour2')==='1'}catch(_){}
+if(location.hash==='#tour'){seen=true;history.replaceState(null,'','#home');setTimeout(()=>{log('tour_link');tour(0)},700)}
+if(!seen&&S.page==='home')setTimeout(()=>{log('tour_auto');tour(0)},700);
+</script>
+
+</body></html>
