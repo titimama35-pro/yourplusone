@@ -691,9 +691,9 @@ const HSTEPS=[['school','School'],['request','Request'],['match','Your +1'],['tr
 function stepper(){const cur=S.step==='ask'?4:HSTEPS.findIndex(x=>x[0]===S.step);return '<div class="stepper" aria-label="Progress">'+HSTEPS.map((x,i)=>'<span class="'+(i<cur?'done':i===cur?'on':'')+'">'+(i+1)+' · '+x[1]+'</span>').join('')+'</div>'}
 const HV={
 school:()=>'<h2>Which school are you at?</h2><p class="lead">Partner schools offer the service to their international students.</p><div role="radiogroup" aria-label="Your school" class="stack" style="gap:8px">'
- +[['hec','HEC Paris','Partner school · demo'],['edhec','EDHEC Business School','Has its own support service'],['other','Another school in France','Not a partner yet']].map(o=>'<button class="opt" role="radio" aria-checked="'+(S.school===o[0])+'" data-act="school:'+o[0]+'"><span><b>'+o[1]+'</b><small>'+o[2]+'</small></span><span class="radio"></span></button>').join('')+'</div>'
+ +[['hec','HEC Paris','Partner school · demo'],['other','Another school in France','Not a partner yet']].map(o=>'<button class="opt" role="radio" aria-checked="'+(S.school===o[0])+'" data-act="school:'+o[0]+'"><span><b>'+o[1]+'</b><small>'+o[2]+'</small></span><span class="radio"></span></button>').join('')+'</div>'
  +(S.school==='hec'?'<div class="good"><b>Good news: HEC Paris covers your +1.</b>It is free for you. Your school sees how many cases were solved, never the details of your case.</div>':'')
- +(S.school==='edhec'?'<div class="good"><b>EDHEC already helps its international students.</b>Tell us below how well it works for you.</div>':'')
+ +''
  +(S.school==='other'?'<div class="notice"><b>Your school is not a partner yet.</b>Tell us you want it and we will ask your international office. You can still try the demo.</div><div><button class="btn alt" data-act="wish">Tell my school I want this</button></div>':'')
  +(S.school?miniSurvey():'')
  +'<div class="row-btns">'+btn(S.school==='hec'?'Continue':'Continue the demo','miniok',{dis:!S.school||!miniDone()})+'</div>'+(S.school&&!miniDone()?'<p class="tiny">Answer the 2 quick questions above to continue.</p>':''),
